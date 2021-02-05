@@ -1,0 +1,62 @@
+/* Reservation non confirmees */
+
+.res-confirm-non{
+	color: #71132a;
+	background-color: #f7d3dc;
+	border-color: #f4c2ce;
+	border-left: 5px solid #71132a;
+}
+.res-confirm-non-td{
+	color: #000 !important;
+}
+.res-confirm-non:nth-child(2n){
+	background-color:#fba8bd !important;
+	color:#063a1f ;
+}
+/* Reservation confirmees */
+
+.res-confirm-oui{
+    color: #1e6641;
+    background-color: #d8f3e5;
+    border-color: #c8eedb;
+    border-left: 5px solid #1e6641;
+}
+.res-confirm-oui-td{
+	color: #000 !important;
+}
+
+.res-confirm-oui:nth-child(2n){
+	background-color:#b7efd2 !important;
+	color:#063a1f !important;
+}
+
+.btn-confirm{
+	background-color:#3ac47d !important;
+	color:#fff !important;
+}
+.btn-confirm:hover{
+	background-color:#1e9859 !important;
+	color:#fff !important;
+}
+
+.btn-delete2{
+	background-color:#d92550 !important;
+	color:#fff !important;
+}
+.btn-delete2:hover{
+	background-color:#b8183e !important;
+	color:#fff !important;
+}
+
+/* Color of Reservations in Calendar */
+a:not([href]):not([tabindex]) {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.fc-event, .fc-event-dot {
+    background-color: #1C7698;
+}
+.fc-daygrid-event-dot {
+    border: calc(var(--fc-daygrid-event-dot-width, 8px) / 2) solid var(--fc-event-border-color, #17ab19);
+}

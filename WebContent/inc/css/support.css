@@ -1,0 +1,50 @@
+#btndisclaimer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+.triggerbtn {
+  border-radius: 0;
+}
+input,textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+input:focus ,textarea:focus{
+  outline: none !important;
+  border:1px solid black;
+}
+textarea{
+  padding-bottom: 15rem;
+}
+.titredisc {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.titre {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Gilroy,sans-serif;
+    line-height: 1.2;
+    letter-spacing: .01em;
+    color: #253246;
+}
+.padbtn{
+  padding : 1rem 2rem;
+  font-weight:bold;
+}
+.label{
+  width:100%;
+  margin-bottom:5px;
+  font-size:16px;
+  font-weight:400;
+  color:#253246;
+  font-size: 19px;
+  font-weight: 700;
+}

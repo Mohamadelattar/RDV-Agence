@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">‏
+<display-name>RDV-Agence</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+<servlet>
+		<servlet-name>DashboardAnnonce</servlet-name>
+		<servlet-class>com.RDV.servlets.DashboardAnnonce</servlet-class>
+		<multipart-config>
+ 
+		<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+		<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+		<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+		</multipart-config>
+ </servlet>
+ 
+ <servlet-mapping>
+  	<servlet-name>DashboardAnnonce</servlet-name>
+  	<url-pattern>/dash-annonce</url-pattern>
+</servlet-mapping>
+
+<servlet>
+		<servlet-name>DashboardPublication</servlet-name>
+		<servlet-class>com.RDV.servlets.DashboardPublication</servlet-class>
+		
+		<multipart-config>
+		<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+		<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+		<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+		</multipart-config>
+</servlet>
+
+<servlet-mapping>
+  	<servlet-name>DashboardPublication</servlet-name>
+  	<url-pattern>/dash-publication</url-pattern>
+</servlet-mapping>
+	
+<servlet>
+  	<servlet-name>DashboardEmploye</servlet-name>
+  	<servlet-class>com.RDV.servlets.DashboardEmploye</servlet-class>
+  	<multipart-config>
+		<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+		<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+		<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+	</multipart-config>
+</servlet>
+ 
+<servlet-mapping>
+  	<servlet-name>DashboardEmploye</servlet-name>
+  	<url-pattern>/dash-employe</url-pattern>
+</servlet-mapping>
+	
+	
+<servlet>
+  	<servlet-name>DashboardClient</servlet-name>
+  	<servlet-class>com.RDV.servlets.DashboardClient</servlet-class>
+  </servlet>
+  
+<servlet-mapping>
+  	<servlet-name>DashboardClient</servlet-name>
+  	<url-pattern>/dash-client</url-pattern>
+</servlet-mapping>‏
+  
+
+ 
+	
+	<servlet>
+  	<servlet-name>FrontClient</servlet-name>
+  	<servlet-class>com.RDV.servlets.FrontClient</servlet-class>
+  </servlet>
+  
+<servlet-mapping>
+  	<servlet-name>FrontClient</servlet-name>
+  	<url-pattern>/post-client</url-pattern>
+</servlet-mapping>‏
+  
+</web-app>
