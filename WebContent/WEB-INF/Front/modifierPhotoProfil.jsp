@@ -4,17 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Espace Client</title>
+	<title>Reservation</title>
 	<meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
-    <link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
 </head>
-<body>
-<!-- Include the header -->
+<body id="profilSection">
+    <!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
-
-
 	<section class="profil mt-5 mb-5">
 		<!-- Profil Client -->
 		<div class="container-md px-4 px-md-5 mx-md-5 ">
@@ -31,7 +29,7 @@
 						</ul>
 						<div class="profil-image mx-auto">
 							<img src="inc/assets/images/<c:out value="${client.getPhotoProfile()}"/>" class="d-block img-fluid profil-image-source">
-							<a href="?do=modifierPhotoProfil&id=<c:out value="${client.id}"/>"><i class="fas fa-camera profil-image-update"></i></a>
+							<a href="#"><i class="fas fa-camera profil-image-update"></i></a>
 						</div>
 						<div class="profil-info mt-4">
 							<h4 class="text-center"><c:out value="${client.prenom}"/> <c:out value="${client.nom}"/></h4>
@@ -77,71 +75,29 @@
 				<div class="col-12 col-lg-8">
 					<div class="info-update ml-lg-3 h-100">
 						<div class="info-update-header">
-							<h2 class="pl-5 pt-5">Editer Profil</h2>
+							<h2 class="pl-5 pt-5">Editer Photo Profil</h2>
 							<ul class="list-inline list-menu pl-4">
-								<li class="list-inline-item non-active-option active-option " id="option-1">
+								<li class="list-inline-item non-active-option active-option" id="option-1">
 									Info utilisateur
-								</li>
-								<li class="list-inline-item non-active-option" id="option-2">
-									Vos Réservations
 								</li>
 							</ul>
 						</div>
 						<div class="menu-option info-update-body px-4 pt-4 d-block">
-							<form method="post" action="post-client" class="mb-4">
-							
-				       		<!-- Un champ hidden pour savoir le type de l'action -->
-				        	<input type="hidden" name="action" value="modifier">
-				        	
-				        	
-				        	<!-- Un champ hidden pour savoir l'id de l'employe -->
-				        	<input type="hidden" name="id" value="<c:out value="${client.id}"/>">
-							    
-								<div class="form-row">
-								    <div class="form-group col-md-6">
-									    <label for="inputNom">Nom</label>
-									    <input type="text" class="form-control" id="inputNom" placeholder="votre nom" name="nom" value="<c:out value="${client.nom}"/>">
-								    </div>
-								    <div class="form-group col-md-6">
-								        <label for="inputPrenom">Prénom</label>
-								        <input type="text" class="form-control" id="inputPrenom" placeholder="votre prenom"  name="prenom" value="<c:out value="${client.prenom}"/>">
-								    </div>
-							  	</div>
-							  	<div class="form-group">
-								    <label for="inputEmail">Email</label>
-								    <input type="text" class="form-control" id="inputEmail" placeholder="Votre Email" name="email" value="<c:out value="${client.email}"/>">
+							<form class="mb-4" action="post-client" method="post" enctype="multiPart/form-data">
+							    <!-- Un champ hidden pour savoir le type de l'action -->
+			        	        <input type="hidden" name="action" value="modifierPhotoProfil">
+			        	
+			        	
+			        	        <!-- Un champ hidden pour savoir l'id de l'employe -->
+			        	        <input type="hidden" name="id" value="<c:out value="${client.id}"/>">
+			        	
+								<span class="d-block mb-2" style="color: #201919; font-weight: bold;">Photo Profil</span>
+							  	<div class="custom-file mb-4">
+								    <input type="file" class="custom-file-input" name="photoProfil" id="customFile">
+								    <label class="custom-file-label" for="customFile">Choisr une Photo</label>
 								</div>
-								<div class="form-group">
-								    <label for="inputPassword">Password</label>
-								    <input type="password" class="form-control" id="inputPassword" placeholder="Votre Mot de Pass" name="password" value="<c:out value="${client.password}"/>">
-								</div>
-							  	<div class="form-group">
-								    <label for="inputAddress">Cin</label>
-								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Cin" name="cin" value="<c:out value="${client.cin}"/>">
-								</div>
-								<div class="form-group">
-								    <label for="inputAddress">Adresse</label>
-								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Adresse" name="ville" value="<c:out value="${client.adresse}"/>">
-								</div>
-								<div class="form-group">
-								    <label for="inputAddress">Numero de Telephone</label>
-								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Numero de telephone" name="numTelephone" value="<c:out value="${client.numTele}"/>">
-								</div>
-							  	<button type="submit" class="btn btn-primary">Modifier</button>
+							  	<button type="submit" class="btn btn-primary">Modifier Photo</button>
 							</form>
-						</div>
-						<div class="menu-option menu-reservation d-none">
-							<div class="pl-5 pt-5 ">
-								<h4>
-									<i class="far fa-frown"></i>
-									Vous n'avez effectuer aucune reservation !
-								</h4>	
-								<div class="d-block text-center mt-5">
-									<a href="#" class="btn-profil-reservation">
-									Prendre un RDV
-								</a>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

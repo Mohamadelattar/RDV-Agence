@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
  
 	    <!-- javascript -->
 	    
@@ -458,11 +460,12 @@
 	      		</div>
 			    <div class="modal-body mx-4 pt-0 mb-5">
 			    	<h5 class="modal-title text-center mb-3">Connexion</h5>
-			    	<form method="post" action="index" class="formConnexion">
+			    	<form method="post" action="index" class="formConnexion" id="formwrap">
 					  <div class="form-group mb-4">
 					    <label for="exampleInputEmail1">
 					    	<i class="fas fa-envelope mr-2"></i> Votre Email : 
 					    </label>
+				
 					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="${client.email}" name="email">
 					    <span class="d-block float-right">
 					    	<a href="#" class="formConnexion-link mt-1">Mot de Passe oublié ?</a>
@@ -475,6 +478,9 @@
 					    </label>
 					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="${client.password}">
 					  </div>
+					  <c:if test="${erreur!=null}">
+			    	      <span class="alert alert-danger mrgn"><c:out value="${erreur}"/></span>
+			    	  </c:if>
 					  <div class="d-flex align-items-center mt-4">
 					  	 <button value="Client" type="submit" class="btn btn-primary btn-submit mx-auto">
 						  	<i class="fas fa-sign-in-alt mr-2"></i> Se Connecter
@@ -604,6 +610,18 @@
 	
 	</script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery Cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Bootstrap js F-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Main Js -->
+	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
 	
  
 </body>

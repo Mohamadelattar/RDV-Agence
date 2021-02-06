@@ -77,15 +77,21 @@ public class MainPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action = request.getParameter("action");
+		String op = request.getParameter("operation");  
 		
 		if(action == null || action.length() == 0) {
 			HttpSession session = request.getSession();
 			// TODO Auto-generated method stub
-			
+			if ((op == null)) {
 			// pourquoi /
 			ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.getAll("from Publication");
 			session.setAttribute(ATT_PUBLICATIONS, publications);
 			this.getServletContext().getRequestDispatcher( VUE_MAIN ).forward( request, response );
+			}
+			if("logout".equalsIgnoreCase(op)) {
+		      session.invalidate();		      
+		      response.sendRedirect(ATT_MAINPAGE);
+		    }
 		}else {
 			switch(action) {
 				case "effectuerReservation":
@@ -95,7 +101,8 @@ public class MainPage extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				break;
+				break;					
+				
 			}
 		}
 	}
