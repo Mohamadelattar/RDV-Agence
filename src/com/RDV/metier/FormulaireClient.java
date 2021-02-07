@@ -337,7 +337,7 @@ public class FormulaireClient {
     private void validationMotDePasse( String motDePasse ) throws Exception {
         if ( motDePasse != null ) {
             if ( motDePasse.length() < 3 ) {
-                throw new Exception( "Le mot de passe doit contenir au moins 3 caractï¿½res." );
+                throw new Exception( "Le mot de passe doit contenir au moins 3 caractères." );
             }
         } else {
             throw new Exception( "Merci de saisir votre mot de passe." );
@@ -375,7 +375,7 @@ public class FormulaireClient {
                 throw new Exception( "Votre ville doit contenir au moins 3 chiffres." );
             }
         } else {
-            throw new Exception( "Merci de saisir un prenom." );
+            throw new Exception( "Merci de saisir un adresse." );
         }
     }
 

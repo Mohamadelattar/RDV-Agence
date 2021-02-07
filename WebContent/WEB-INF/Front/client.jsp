@@ -102,31 +102,117 @@
 									    <label for="inputNom">Nom</label>
 									    <input type="text" class="form-control" id="inputNom" placeholder="votre nom" name="nom" value="<c:out value="${client.nom}"/>">
 								    </div>
+                                    <!-- Prenom -->
 								    <div class="form-group col-md-6">
 								        <label for="inputPrenom">Prénom</label>
 								        <input type="text" class="form-control" id="inputPrenom" placeholder="votre prenom"  name="prenom" value="<c:out value="${client.prenom}"/>">
 								    </div>
-							  	</div>
+							  	    </div>
+							  	    <c:if test="${!empty formulaire.erreurs['nom']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 nom form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['nom']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
+							  	    <c:if test="${!empty formulaire.erreurs['prenom']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 prenom" role="alert">
+	                                           <c:out value="${formulaire.erreurs['prenom']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
+							  	
 							  	<div class="form-group">
 								    <label for="inputEmail">Email</label>
 								    <input type="text" class="form-control" id="inputEmail" placeholder="Votre Email" name="email" value="<c:out value="${client.email}"/>">
 								</div>
+								<c:if test="${!empty formulaire.erreurs['email']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 email form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['email']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
 								<div class="form-group">
 								    <label for="inputPassword">Password</label>
 								    <input type="password" class="form-control" id="inputPassword" placeholder="Votre Mot de Pass" name="password" value="<c:out value="${client.password}"/>">
 								</div>
+								<c:if test="${!empty formulaire.erreurs['password']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 password form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['password']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
 							  	<div class="form-group">
 								    <label for="inputAddress">Cin</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Cin" name="cin" value="<c:out value="${client.cin}"/>">
 								</div>
+								<c:if test="${!empty formulaire.erreurs['cin']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 cin form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['cin']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
 								<div class="form-group">
 								    <label for="inputAddress">Adresse</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Adresse" name="ville" value="<c:out value="${client.adresse}"/>">
 								</div>
+								<c:if test="${!empty formulaire.erreurs['ville']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 adresse form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['ville']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
 								<div class="form-group">
 								    <label for="inputAddress">Numero de Telephone</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Numero de telephone" name="numTelephone" value="<c:out value="${client.numTele}"/>">
 								</div>
+								<c:if test="${!empty formulaire.erreurs['numTelephone']}">
+				                     <!-- Afficher l'erreur dans ce bloc -->
+				            
+				                     	 <div class="form-row error er">
+	                                     <div class="name"></div>
+	                                     <div class="value">
+	                                      <div class="alert alert-danger mb-2 numTelephone form-control" role="alert">
+	                                           <c:out value="${formulaire.erreurs['numTelephone']}"/>
+	                                      </div>
+	                                </div>
+	                                </div>
+                                    </c:if>
 							  	<button type="submit" class="btn btn-primary">Modifier</button>
 							</form>
 						</div>
