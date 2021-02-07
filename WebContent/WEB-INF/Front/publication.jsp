@@ -74,27 +74,43 @@
 
                     </div>
                 </div>
-                <div class="pl-5 col-4 d-none d-lg-block">
-                    <div class="picks text-center mt-2">
-                        <h3 class="section-title section-title-size text-center">Nos <span>Publications</span></h3>
+
+                <div class="col-4 d-none d-md-block">
+                    <div class="recent-posts">
+                        <div class="recent-posts-header mb-3 d-flex align-items-center">
+                            <h3 class="ml-3 my-auto">Recent posts</h3>
+                        </div>
+                        <div class="recent-posts-body">
+                            <c:forEach items="${publications}" var="item">
+                            <div class="recent-posts-publications d-flex justify-content-between mb-3">
+                                <div class="recent-posts-publications-image">
+                                    <img width="100px" height="100px" src="inc/inc_Dashboard/assets/images/<c:out value="${item.image}"/>" class="d-block img-fluid">
+                                </div>
+                                <div class="recent-posts-publications-info ml-3">
+                                    <h5>
+                                        <a href="post?id=<c:out value='${item.id}' />&idEmp=<c:out value="${item.idEmploye}"/>">
+                                            <c:out value="${item.titre }"/>
+                                        </a>
+                                    </h5>
+                                    <p>${item.date}</p>
+                                </div>
+                            </div>
+                        </c:forEach>
+                             
+                             
+                        </div>
                     </div>
-                    <hr>
-                    <c:forEach items="${publications}" var="item">
-                    <a href="#" class="publication-link">
-						<div class="publication-content px-3 mx-3 mb-4">
-							<div class="publication-image">
-								<img src="inc/inc_Dashboard/assets/images/<c:out value="${item.image }"/>" class="d-block image-para img-fluid">
-							</div>
-							<div class="publication-body text-center pb-5">
-								<h4 class="">${item.titre }</h4>
-								<span>
-									<a href="post?id=<c:out value='${item.id}' />&idEmp=<c:out value="${item.idEmploye}"/>" class="formConnexion-link">Learn More</a>
-								</span>
-							</div>
-						</div>
-					</a>
-					</c:forEach>
-                     
+                    <div class="recent-posts-header mb-3 d-flex align-items-center mt-4">
+                        <h3 class="ml-3 my-auto">Trouver nous sur les reseaux sociaux</h3>
+                    </div>
+                    <div class="picks-images snapcode text-center">
+                        <img src="inc/assets/images/facebook.png" class="d-block w-100">
+                        <h2>
+                            <a href="#" class="d-block">ReservationAgency
+                            </a>
+                            <span class="span-pub mt-2 px-3">@ReservationAgency</span>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -199,18 +215,18 @@
                     	Votre adresse email ne sera pas publiée. Les champs requis sont indiqués *
                     </p>
                     <!-- Visible on Computer & Pc Screen -->
-                    <form class="pl-0 pl-md-4 pt-3 form-pc d-none d-md-block">
+                    <form class="pl-0 pl-md-4 pt-3 form-pc d-none d-md-block" method="post" action="SendEmail">
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="comment*"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="comment" placeholder="comment*"></textarea>
                         </div>
                         <div class="form-group input-size">
-                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Name*">
+                            <input type="text" class="form-control" id="exampleFormControlInput2" name="nom" placeholder="Name*">
                         </div>
                         <div class="form-group input-size">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email*">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Email*">
                         </div>
                         <div class="form-group input-size">
-                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Website">
+                            <input type="text" class="form-control" id="exampleFormControlInput2" name="website" placeholder="Website">
                         </div>
                         <div class="form-group">
                             <div class="form-check mb-2">

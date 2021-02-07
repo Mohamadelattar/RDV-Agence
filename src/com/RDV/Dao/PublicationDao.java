@@ -1,6 +1,7 @@
 package com.RDV.Dao;
 
  
+import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
@@ -44,7 +45,25 @@ public class PublicationDao extends DaoFactory {
 	    	  
 	    	return publications;
 	    }
-	    
+	    /*
+	    @SuppressWarnings({ "unchecked", "unused" })
+		public List<LocalDate> ListDate() {
+	    	
+	    	Transaction transaction = null;
+	    	Query query;
+	    	String sql;
+	    	List<LocalDate> dates;
+	    	
+	    	try(Session session = HibernateUtil.getSessionFactory().openSession()){
+	    		transaction = session.beginTransaction();
+	    		query = session.createSQLQuery("SELECT `date` FROM `publication` WHERE 1");
+	    		dates = query.getResultList();
+	    	}
+	    	System.out.println(dates.get(0));
+	    	
+	    	return dates;
+	    }
+	    */
 	    @SuppressWarnings("unused")
 		public int [] maxMinPublication()
 	    {

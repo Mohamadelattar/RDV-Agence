@@ -1,6 +1,7 @@
 package com.RDV.servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -47,16 +48,20 @@ public class PublicationPage extends HttpServlet {
 	 */
 	 
 	 
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt( request.getParameter( "id" ) );
 		int idEmp = Integer.parseInt(request.getParameter( "idEmp" ));
         Publication publication = (Publication) publicationDao.getById(id);
+        //List<LocalDate> dates = publicationDao.ListDate();
         Publication prevPublication = null;
         Publication nextPublication = null;
         Employe employe = (Employe) employeDao.getById(idEmp);
          
         List < Publication > publications = (List<Publication>) publicationDao.publications(id);
+        
+        
         int [] result  = publicationDao.maxMinPublication();
          
          if(id==result[0]) {

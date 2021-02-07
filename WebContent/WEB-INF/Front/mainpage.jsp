@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=1">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/publication.css?version=1">
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
@@ -153,41 +154,106 @@
 		</div>
 	</section>
 
-	<section class="publication mt-5">
-		
-		<!-- Publications -->
-		<div class="container mx-auto px-5 px-sm-0">
-			<h3 class="section-title section-title-size text-center mb-5">Top <span>Publications</span></h3>
-			<div class="row customer-logos slider">
-			 <c:forEach items="${publications}" var="publication">
-				<div class="col-12 col-md-6 col-lg-4 mb-4  slide">
-					<a href="#" class="publication-link mx-auto">
-						<div class="publication-content h-100 ">
-							<div class="publication-image">
-								<img src="inc/inc_Dashboard/assets/images/<c:out value="${publication.image }"/>" class="d-block image-para img-fluid">
-							</div>
-							<div class="publication-body text-center pb-5">
-								<br>
-								<h4 class="">${publication.titre}</h4>
-								<br>
+ <section class="mt-5 mb-5" id="publications">
+		<div class="container d-none d-lg-block">
+			<div class="row">
+				<!--first Element -->
+				
+					<c:forEach items="${publications}" var="publication">
+					<div class="col-12 col-md-6 col-lg-4 col-lg-4">
+					<div class="publication-entity">
+						<div class="publication-picture w-100">
+							<!-- For Hover Effect -->
+							<div class="bg-color">
 								
-								<p class="px-3 para" >
-									 <c:out value='${publication.contenu}' />
-								</p>
-									
-								<span>
-									<a href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>" class="formConnexion-link">Learn More</a>
-								</span>
 							</div>
+							<img src="inc/inc_Dashboard/assets/images/<c:out value="${publication.image }"/>" class="d-block img-fluid">
 						</div>
-					</a>
+						<div class="publication-body h-auto px-4 pt-4 pb-5">
+							<ul class="list-inline publication-author">
+								<li class="list-inline-item">
+									Par:
+								</li>
+								<li class="list-inline-item">
+									<span>Admin</span>
+								</li>
+								<li class="list-inline-item">
+									|
+								</li>
+								<li class="list-inline-item">
+									<c:out value="${publication.date }"/>
+								</li>
+								<li class="list-inline-item">
+									|
+								</li>
+							</ul>
+							<h4><a class="" href="#">${publication.titre}</a></h4>
+							<div class="module overflow">
+							
+							<p class="paragraph-excerpt "  >
+								<c:out value="${publication.contenu }"/>
+							</p>
+							</div>
+							<a href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>" class="read-more">
+								Read More
+							</a>
+						</div>
+						<p></p>
+					</div>
 				</div>
-				</c:forEach>
- 
- 
+				
+			</c:forEach>
+			
 			</div>
-		</div>
-	</section>
+			</div>
+			<div class="container-md mx-5 d-block d-lg-none" >
+			<div class="row">
+				<!--first Element -->
+				<c:forEach items="${publications}" var="publication">
+					<div class="col-12 col-md-6 col-lg-4 col-lg-4">
+					<div class="publication-entity">
+						<div class="publication-picture w-100">
+							<!-- For Hover Effect -->
+							<div class="bg-color">
+								
+							</div>
+							<img src="inc/inc_Dashboard/assets/images/<c:out value="${publication.image }"/>" class="d-block img-fluid">
+						</div>
+						<div class="publication-body h-auto px-4 pt-4 pb-5">
+							<ul class="list-inline publication-author">
+								<li class="list-inline-item">
+									Par:
+								</li>
+								<li class="list-inline-item">
+									<span>Admin</span>
+								</li>
+								<li class="list-inline-item">
+									|
+								</li>
+								<li class="list-inline-item">
+									<c:out value="${publication.date}"/>
+								</li>
+								<li class="list-inline-item">
+									|
+								</li>
+							</ul>
+							<h4><a class="" href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>">${publication.titre}</a></h4>
+							<p class="paragraph-excerpt " ></p>
+							<a href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>" class="read-more">
+								Read More
+							</a>
+						</div>
+						<p></p>
+					</div>
+				</div>
+				
+			</c:forEach>
+				 
+				 
+					</div>
+				</div>
+		 
+			</section>
 
 
 	<section class="clients mt-5">
@@ -572,36 +638,20 @@
 	<!-- Include the footer -->
 	<c:import url="/inc/inc_Front/footer.jsp" />
 	
-	<script>
-	$(document).ready(function(){
-	    $('.customer-logos').slick({
-	        slidesToShow: 3,
-	        slidesToScroll: 1,
-	        autoplay: true,
-	        autoplaySpeed: 1300,
-	        arrows: false,
-	        dots: false,
-	        pauseOnHover: false,
-	        responsive: [{
-	            breakpoint: 992,
-	            settings: {
-	                slidesToShow: 2
-	            }
-	        },
-	        	{
-	            breakpoint: 768,
-	            settings: {
-	                slidesToShow: 1
-	            }
-	        }, {
-	            breakpoint: 520,
-	            settings: {
-	                slidesToShow: 1
-	            }
-	        }]
-	    });
-	});
-	
+<script type="text/javascript">
+ 
+		$(document).ready(function(){
+			$('.publication-entity').hover(
+		       function(){ 
+		       	$(this).children('.publication-picture').children('div').addClass('bg-color-hover');
+		       	$(this).children('.publication-picture').children('img').addClass('publication-picture-hover');
+		       	 },
+		       function(){ 
+		       	$(this).children('.publication-picture').children('div').removeClass('bg-color-hover');
+		        $(this).children('.publication-picture').children('img').removeClass('publication-picture-hover');
+		   		}
+			)
+		})
 	</script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	

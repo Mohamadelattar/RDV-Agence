@@ -135,6 +135,28 @@
   }
 }
 
+textarea{
+  outline: none;
+  margin: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea {
+  display: block;
+  outline: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+
 .col-9 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 75%;

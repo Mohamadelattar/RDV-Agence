@@ -1,6 +1,8 @@
 package com.RDV.beans;
  
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,14 +23,26 @@ public class Publication {
 	private String contenu;
 	@Column(name="image")
 	private String image;
-	//@Column(name="date")
-	//private Date date;
+	@Column(name="date")
+	private LocalDate date;
 	@Column(name="idEmploye")
 	private int idEmploye;
 
 	public Publication() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Publication(int id, String titre, String contenu, String image, LocalDate date, int idEmploye) {
+		super();
+		this.id = id;
+		this.titre = titre;
+		this.contenu = contenu;
+		this.image = image;
+		this.date = date;
+		this.idEmploye = idEmploye;
+	}
+
 
 	public Publication(int id, String titre, String contenu, String image, int idEmploye) {
 		super();
@@ -79,6 +93,14 @@ public class Publication {
 
 	public void setIdEmploye(int idEmploye) {
 		this.idEmploye = idEmploye;
+	}
+	
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
 	

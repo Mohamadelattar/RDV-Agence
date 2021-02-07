@@ -83,7 +83,7 @@ public class MainPage extends HttpServlet {
 			// TODO Auto-generated method stub
 			
 			// pourquoi /
-			ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.getAll("from Publication");
+			ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.publications(1);
 			session.setAttribute(ATT_PUBLICATIONS, publications);
 			this.getServletContext().getRequestDispatcher( VUE_MAIN ).forward( request, response );
 		}else {

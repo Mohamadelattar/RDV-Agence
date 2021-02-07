@@ -92,6 +92,12 @@
                                      Annonce
                                 </a>
                             </li>
+                            <li>
+                                    <a href="dash-portfolio" class="slide-element">
+                                    	<i class="fas fa-comment-dots"></i>
+                                        Portfolio
+                                    </a>
+                                </li>
                             <li class="app-sidebar__heading">Clients</li>
                                 <li>
                                     <a href="dash-client" class="slide-element">
@@ -105,6 +111,8 @@
                                         Commentaires
                                     </a>
                                 </li>
+                               
+                                 
                  </ul>
              </div>
          <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 597px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 527px;"></div>

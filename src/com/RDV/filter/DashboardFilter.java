@@ -17,8 +17,8 @@ import javax.servlet.http.HttpSession;
  */
 
 
-@WebFilter(servletNames = {"DashboardClient","DashboardPublication","DashboardAnnonce","DashboardEmploye","DashboardReservation","DashboardClient","Dashboard"},
-urlPatterns= {"/dashboard","/dash-publication","/dash-client","/dash-reservations","/dash-employe","/dash-reservations","/dash-annonce","/dash-commentaires"})
+@WebFilter(servletNames = {"DashboardClient","DashboardPublication","DashboardAnnonce","DashboardEmploye","DashboardPortfolio","DashboardReservation","DashboardClient","Dashboard"},
+urlPatterns= {"/dashboard","/dash-publication","/dash-client","/dash-reservations","/dash-employe","/dash-portfolio","/dash-reservations","/dash-annonce","/dash-commentaires"})
 public class DashboardFilter implements Filter {
 	public static final String ATT_EMPLOYE = "employe";
 	private static final String VUE_LOGIN = "/WEB-INF/Dashboard/login.jsp";

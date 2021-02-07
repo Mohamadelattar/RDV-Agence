@@ -1,16 +1,12 @@
 package com.RDV.Dao;
 
- 
-
 @SuppressWarnings("rawtypes")
-public class AnnonceDao extends DaoFactory {
+public class PortfolioDao extends DaoFactory {
 
 	@SuppressWarnings("unchecked")
-	public AnnonceDao(Class persistentClass)  {
+	public PortfolioDao(Class persistentClass) {
 		super(persistentClass);
 		// TODO Auto-generated constructor stub
 	}
-	
-	 
- 
+
 }

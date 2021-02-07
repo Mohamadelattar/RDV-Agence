@@ -62,7 +62,15 @@
   	<url-pattern>/dash-client</url-pattern>
 </servlet-mapping>‏
   
+<servlet>
+	<servlet-name>DashboardPortfolio</servlet-name>
+	<servlet-class>com.RDV.servlets.DashboardPortfolio</servlet-class>
+</servlet>
 
+<servlet-mapping>
+  	<servlet-name>DashboardPortfolio</servlet-name>
+  	<url-pattern>/dash-portfolio</url-pattern>
+</servlet-mapping>
  
 	
 	<servlet>
