@@ -23,14 +23,14 @@
 					<div class="profil-body px-4 pt-4">
 						<ul class="list-inline mb-5">
 							<li class="list-inline-item float-left">
-								<img src="inc/assets/images/medal.svg" class="img-fluid d-block badge-image">
+								<img src="inc/inc_Front/images/medal.svg" class="img-fluid d-block badge-image">
 							</li>
 							<li class="list-inline-item float-right">
 								<span class="online">En ligne</span>
 							</li>
 						</ul>
 						<div class="profil-image mx-auto">
-							<img src="inc/assets/images/<c:out value="${client.getPhotoProfile()}"/>" class="d-block img-fluid profil-image-source">
+							<img src="inc/inc_Front/images/<c:out value="${client.getPhotoProfile()}"/>" class="d-block img-fluid profil-image-source">
 							<a href="?do=modifierPhotoProfil&id=<c:out value="${client.id}"/>"><i class="fas fa-camera profil-image-update"></i></a>
 						</div>
 						<div class="profil-info mt-4">
@@ -101,118 +101,57 @@
 								    <div class="form-group col-md-6">
 									    <label for="inputNom">Nom</label>
 									    <input type="text" class="form-control" id="inputNom" placeholder="votre nom" name="nom" value="<c:out value="${client.nom}"/>">
+									    <c:if test="${!empty formulaire.erreurs['nom']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['nom']}"/><p>
+                                        </c:if>
 								    </div>
                                     <!-- Prenom -->
 								    <div class="form-group col-md-6">
 								        <label for="inputPrenom">Prénom</label>
 								        <input type="text" class="form-control" id="inputPrenom" placeholder="votre prenom"  name="prenom" value="<c:out value="${client.prenom}"/>">
+								        <c:if test="${!empty formulaire.erreurs['prenom']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['prenom']}"/><p>
+                                        </c:if>
 								    </div>
 							  	    </div>
-							  	    <c:if test="${!empty formulaire.erreurs['nom']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 nom form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['nom']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
-							  	    <c:if test="${!empty formulaire.erreurs['prenom']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 prenom" role="alert">
-	                                           <c:out value="${formulaire.erreurs['prenom']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
-							  	
+							 
 							  	<div class="form-group">
 								    <label for="inputEmail">Email</label>
 								    <input type="text" class="form-control" id="inputEmail" placeholder="Votre Email" name="email" value="<c:out value="${client.email}"/>">
+								    <c:if test="${!empty formulaire.erreurs['email']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['email']}"/><p>
+                                        </c:if>
 								</div>
-								<c:if test="${!empty formulaire.erreurs['email']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 email form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['email']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
 								<div class="form-group">
 								    <label for="inputPassword">Password</label>
 								    <input type="password" class="form-control" id="inputPassword" placeholder="Votre Mot de Pass" name="password" value="<c:out value="${client.password}"/>">
+								    <c:if test="${!empty formulaire.erreurs['password']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['password']}"/><p>
+                                        </c:if>
 								</div>
-								<c:if test="${!empty formulaire.erreurs['password']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 password form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['password']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
+								
 							  	<div class="form-group">
 								    <label for="inputAddress">Cin</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Cin" name="cin" value="<c:out value="${client.cin}"/>">
+								    <c:if test="${!empty formulaire.erreurs['cin']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['cin']}"/><p>
+                                        </c:if>
 								</div>
-								<c:if test="${!empty formulaire.erreurs['cin']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 cin form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['cin']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
+								
 								<div class="form-group">
 								    <label for="inputAddress">Adresse</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Adresse" name="ville" value="<c:out value="${client.adresse}"/>">
+								    <c:if test="${!empty formulaire.erreurs['ville']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['ville']}"/><p>
+                                        </c:if>
 								</div>
-								<c:if test="${!empty formulaire.erreurs['ville']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 adresse form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['ville']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
 								<div class="form-group">
 								    <label for="inputAddress">Numero de Telephone</label>
 								    <input type="text" class="form-control" id="inputAddress" placeholder="Votre Numero de telephone" name="numTelephone" value="<c:out value="${client.numTele}"/>">
+								    <c:if test="${!empty formulaire.erreurs['numTelephone']}">
+                                        <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['numTelephone']}"/><p>
+                                        </c:if>
 								</div>
-								<c:if test="${!empty formulaire.erreurs['numTelephone']}">
-				                     <!-- Afficher l'erreur dans ce bloc -->
-				            
-				                     	 <div class="form-row error er">
-	                                     <div class="name"></div>
-	                                     <div class="value">
-	                                      <div class="alert alert-danger mb-2 numTelephone form-control" role="alert">
-	                                           <c:out value="${formulaire.erreurs['numTelephone']}"/>
-	                                      </div>
-	                                </div>
-	                                </div>
-                                    </c:if>
 							  	<button type="submit" class="btn btn-primary">Modifier</button>
 							</form>
 						</div>
@@ -247,7 +186,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<!-- Main Js -->
-	<script type="text/javascript" src="inc/assets/scripts/main.js"></script>
+	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
 	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>
 </body>
 </body>

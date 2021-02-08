@@ -4,19 +4,19 @@
 
 @font-face {
     font-family: GilroyExtraBold;
-    src:url("inc/assets/fonts/Gilroy-ExtraBold.otf");
+    src:url("fonts/Gilroy-ExtraBold.otf");
 }
 @font-face {
     font-family: GilroyLight;
-    src:url("inc/assets/fonts/Gilroy-Light.otf");
+    src:url("fonts/Gilroy-Light.otf");
 }
 @font-face {
     font-family: GiltroyRegular;
-    src:url("inc/assets/fonts/Gilroy-Regular.ttf");
+    src:url("fonts/Gilroy-Regular.ttf");
 }
 @font-face {
     font-family: GiltroyBold;
-    src:url("inc/assets/fonts/Gilroy-Bold.ttf");
+    src:url("fonts/Gilroy-Bold.ttf");
 }
 
 
@@ -251,6 +251,7 @@
 .shape{
 	border-bottom-right-radius: 100px;
 	border-bottom-left-radius: 100px;
+	
 }
 .support-description{
 	margin-bottom: 2rem;
@@ -1184,65 +1185,8 @@ footer {
     padding-bottom: 8px;
     margin-left: 16px;
 }
-@media (min-width:320px)  { 
-	.er .prenom {
-    padding-bottom: 0.2rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 252%;
+.mb-2, .my-2 {
+    margin-top: 5px;
     text-align: center;
+    line-height: 0.6;
 }
-.er .nom {
-    padding-bottom: 0.2rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 280%;
-    text-align: center;}}
-@media (min-width:961px)  { 
-	.er .prenom {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 298%;
-    text-align: center; }
-    .er .nom {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 331%;
-    text-align: center;
-}  
-    .er .email {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 218%;
-    text-align: center;
-    }
-    .er .password {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 167%;
-    text-align: center;
-}
-    .er .cin {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 351%;
-    text-align: center;
-    }
-    .er .adresse {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 301%;
-    text-align: center;}
-    .er .numTelephone {
-    padding-bottom: 0.3rem!important;
-    padding-top: .2rem!important;
-    margin-left: 4px;
-    WIDTH: 167%;
-    text-align: center;
-}}

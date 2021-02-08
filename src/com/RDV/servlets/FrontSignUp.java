@@ -2,6 +2,7 @@ package com.RDV.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,7 @@ import com.RDV.metier.FormulaireClient;
 public class FrontSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE_SIGNUP = "/WEB-INF/Front/registration.jsp";
+	private static final String CHAMP_ERREUR ="erreur";
 	public static final String CLIENT = "client";
     private static final String FORMULAIRE       = "formulaire";
     public static final String ATT_FORM   = "form";
@@ -59,17 +61,21 @@ public class FrontSignUp extends HttpServlet {
 	        FormulaireClient formulaire = new FormulaireClient();
 
 	        Client client = formulaire.validerClient( request );
-
 	        if ( formulaire.getErreurs().isEmpty() ) {
 	            clientDao.saveClient( client );
+	            request.setAttribute( FORMULAIRE, formulaire );
+		        request.setAttribute( CLIENT, client );
+		        session.setAttribute(CLIENT, client);
+
+		        this.getServletContext().getRequestDispatcher( VUE_LOGIN ).forward( request, response );
 	        }
-	        System.out.println( client.getNom() + " " + client.getPhotoProfile() );
-
-	        request.setAttribute( FORMULAIRE, formulaire );
-	        request.setAttribute( CLIENT, client );
-	        session.setAttribute(CLIENT, client);
-
-	        this.getServletContext().getRequestDispatcher( VUE_LOGIN ).forward( request, response );
+	         else {
+	      
+	        	     request.setAttribute( FORMULAIRE, formulaire );
+    	             RequestDispatcher dispatcher = request.getRequestDispatcher(VUE_SIGNUP);
+                     dispatcher.forward(request, response);
+    }
+	        
 	    }
  
 }

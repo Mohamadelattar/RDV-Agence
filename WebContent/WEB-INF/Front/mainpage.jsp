@@ -14,6 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
+	<!-- Animate libraries -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
  
 	    <!-- javascript -->
 	    
@@ -25,36 +29,92 @@
 	
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
-
-	<section class="mt-5">
-		
-		<!-- Main Section -->
-		<div class="container mx-auto">
-			<div class="row">
-				<div class="col-12 col-md-7 d-flex align-items-center">
-					<div class="">
-						<h1 class="section-title mb-4">Système de réservation en ligne pour <span>les sociétés de services</span></h1>
-						<p class="description-paragraph mb-5">Il vous suffit de définir vos services et vos prestataires, d'afficher leur disponibilité, et vous aurez des clients, anciens et nouveaux, qui feront des réservations 24h/24, 7j/7. </p>
-						<ul class="list-inline pt-2 mb-5">
-							<li class="list-inline-item">
-								<a href="?action=effectuerReservation" class="inscription-link">
-									Obtenir un compte gratuit
-								</a>
-							</li>
-							<li class="list-inline-item d-none d-md-inline-block pt-5">
-								<a href="#" class="inscription-link inscription-link-color">
-									Soyez inspirés
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- Image Publicite-->
-				<div class="col-12 col-md-5 mt-3 mt-md-0 px-0">
-					<img src="inc/assets/images/Booking2.png" class="d-block img-fluid">
-				</div>
-			</div>
-		</div>
+    
+    <!-- Caroussel With text Animations -->
+	<section>
+		<div class="owl-carousel owl-theme">
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-1.jpg" alt="image 1">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>                    
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-2.jpg" alt="images 2">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line animated bounceInLeft"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>                
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-3.jpg" alt="images 3">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line animated bounceInLeft"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>
+	    </div>
 	</section>
 
 	<section class="mt-5 pt-5 Fonctionnalites">
@@ -65,7 +125,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/calendar.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/calendar.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Accepter les réservations en ligne</h4>
 						<p class="text-center paragraph">
@@ -80,7 +140,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/notification.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/notification.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Notifications via SMS/Email</h4>
 						<p class="text-center paragraph">
@@ -95,7 +155,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/payment.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/payment.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Accepter paiements</h4>
 						<p class="text-center paragraph">
@@ -110,7 +170,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/comments.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/comments.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Accepter paiements</h4>
 						<p class="text-center paragraph">
@@ -125,7 +185,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/calendar.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/calendar.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Accepter paiements</h4>
 						<p class="text-center paragraph">
@@ -140,7 +200,7 @@
 				<div class="col-12 col-sm-6 col-lg-4 mb-4">
 					<div class="fonctionnalite-item">
 						<div class="svg-icon">
-							<img src="inc/assets/images/calendar.svg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/calendar.svg" class="d-block img-fluid">
 						</div>
 						<h4 class="text-center mt-3">Accepter paiements</h4>
 						<p class="text-center paragraph">
@@ -201,10 +261,10 @@
 				<div class="col-12 col-md-6 mb-5 mt-5 mb-md-0 mt-md-0">
 					<div class="client-opinion">
 						<div class="d-none d-sm-block client-image my-auto">
-							<img src="inc/assets/images/benaicha.jpg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/benaicha.jpg" class="d-block img-fluid">
 						</div>
 						<div class="d-block d-sm-none client-image-low my-auto">
-							<img src="inc/assets/images/benaicha.jpg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/benaicha.jpg" class="d-block img-fluid">
 						</div>
 						<div class="client-info">
 							<h5 class="text-center client-name">Mohamed Amine Benaicha</h5>
@@ -222,10 +282,10 @@
 				<div class="col-12 col-md-6 mb-5 mt-5 mb-md-0 mt-md-0">
 					<div class="client-opinion">
 						<div class="d-none d-sm-block client-image my-auto">
-							<img src="inc/assets/images/amiri.jpg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/amiri.jpg" class="d-block img-fluid">
 						</div>
 						<div class="d-block d-sm-none client-image-low my-auto">
-							<img src="inc/assets/images/amiri.jpg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/amiri.jpg" class="d-block img-fluid">
 						</div>
 						<div class="client-info">
 							<h5 class="text-center client-name">Mohamed Amiri</h5>
@@ -252,7 +312,7 @@
 			<h3 class="section-title section-title-size text-center mb-5">Vous voulez plus de réservations <span>de plus de canaux ? </span></h3>
 			<div class="row">
 				<div class="col-12 col-lg-6">
-					<img src="inc/assets/images/facebook.png" class="d-block img-fluid" id="imageSocialMedia">
+					<img src="inc/inc_Front/images/facebook.png" class="d-block img-fluid" id="imageSocialMedia">
 				</div>
 				<div class="col-12 col-lg-6 d-flex align-items-center">
 					<div class="w-100">
@@ -347,7 +407,7 @@
 					</div>
 					<div class="col-12 col-md-6 col-lg-8 pr-0">
 						<div class="">
-							<img src="inc/assets/images/support.jpg" class="d-block img-fluid">
+							<img src="inc/inc_Front/images/support.jpg" class="d-block img-fluid">
 						</div>
 					</div>
 				</div>
@@ -364,7 +424,7 @@
 			<div class="row mb-5">
 				<div class="col-12 col-lg-6">
 					<div class="px-5 px-lg-0">
-						<img src="inc/assets/images/securite.svg" class="d-block img-fluid">
+						<img src="inc/inc_Front/images/securite.svg" class="d-block img-fluid">
 					</div>
 				</div>
 				<div class="col-12 col-lg-6 d-flex align-items-center pt-3">
@@ -388,13 +448,13 @@
 
 			<div class="d-flex justify-content-center">
 				<div class="securite-image">
-					<img src="inc/assets/images/gdpr.png" class="d-block img-fluid">
+					<img src="inc/inc_Front/images/gdpr.png" class="d-block img-fluid">
 				</div>
 				<div class="securite-image">
-					<img src="inc/assets/images/hipaa.png" class="img-fluid d-block">
+					<img src="inc/inc_Front/images/hipaa.png" class="img-fluid d-block">
 				</div>
 				<div class="securite-image">
-					<img src="inc/assets/images/ssl.png" class="img-fluid d-block">
+					<img src="inc/inc_Front/images/ssl.png" class="img-fluid d-block">
 				</div>
 			</div>
 		</div>
@@ -421,7 +481,7 @@
 				</div>
 				<div class="col-12 col-md-7">
 					<div class="guide-image">
-						<img src="inc/assets/images/guideVideo.png" class="d-block img-fluid mx-auto">
+						<img src="inc/inc_Front/images/guideVideo.png" class="d-block img-fluid mx-auto">
 						<span class="span-pub-guide">
 							C'est vraiment facile
 						</span>
@@ -448,51 +508,6 @@
 			</div>
 		</div>
 	</section>
-
-
-	<div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-	    	<div class="modal-content">
-	      		<div class="modal-header pb-0">
-	        		<button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
-	          		<span aria-hidden="true">&times;</span>
-	        		</button>
-	      		</div>
-			    <div class="modal-body mx-4 pt-0 mb-5">
-			    	<h5 class="modal-title text-center mb-3">Connexion</h5>
-			    	<form method="post" action="index" class="formConnexion" id="formwrap">
-					  <div class="form-group mb-4">
-					    <label for="exampleInputEmail1">
-					    	<i class="fas fa-envelope mr-2"></i> Votre Email : 
-					    </label>
-				
-					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="${client.email}" name="email">
-					    <span class="d-block float-right">
-					    	<a href="#" class="formConnexion-link mt-1">Mot de Passe oublié ?</a>
-					    </span>
-					  </div>
-
-					  <div class="form-group">
-					    <label for="exampleInputPassword1">
-					    	<i class="fas fa-lock mr-2"></i> Votre Mot de Passe :
-					    </label>
-					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="${client.password}">
-					  </div>
-					  <c:if test="${erreur!=null}">
-			    	      <span class="alert alert-danger mrgn"><c:out value="${erreur}"/></span>
-			    	  </c:if>
-					  <div class="d-flex align-items-center mt-4">
-					  	 <button value="Client" type="submit" class="btn btn-primary btn-submit mx-auto">
-						  	<i class="fas fa-sign-in-alt mr-2"></i> Se Connecter
-						  </button>
-					  </div>
-					</form>
-			    </div>
-	    	</div>
-	  	</div>
-	</div>
-
-
 	<footer class="mt-5">
 	    <div class="footer-container px-4 px-lg-3">
 		    <div class="footer-menu">
@@ -620,9 +635,11 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Caroussel Js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
 	<!-- Main Js -->
 	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
 	
- 
+
 </body>
 </html>

@@ -128,6 +128,7 @@ public class FrontClient extends HttpServlet {
         FormulaireClient formulaire = new FormulaireClient();
 
         Client client = formulaire.modifierClient( request );
+        
 
         System.out.println( client.getNom() + " " + client.getPhotoProfile() );
 

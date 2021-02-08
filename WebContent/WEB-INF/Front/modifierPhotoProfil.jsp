@@ -21,14 +21,14 @@
 					<div class="profil-body px-4 pt-4">
 						<ul class="list-inline mb-5">
 							<li class="list-inline-item float-left">
-								<img src="inc/assets/images/medal.svg" class="img-fluid d-block badge-image">
+								<img src="inc/inc_Front/images/medal.svg" class="img-fluid d-block badge-image">
 							</li>
 							<li class="list-inline-item float-right">
 								<span class="online">En ligne</span>
 							</li>
 						</ul>
 						<div class="profil-image mx-auto">
-							<img src="inc/assets/images/<c:out value="${client.getPhotoProfile()}"/>" class="d-block img-fluid profil-image-source">
+							<img src="inc/inc_Front/images/<c:out value="${client.getPhotoProfile()}"/>" class="d-block img-fluid profil-image-source">
 							<a href="#"><i class="fas fa-camera profil-image-update"></i></a>
 						</div>
 						<div class="profil-info mt-4">
@@ -117,7 +117,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<!-- Main Js -->
-	<script type="text/javascript" src="inc/assets/scripts/main.js"></script>
+	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
 	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>
 </body>
 </body>

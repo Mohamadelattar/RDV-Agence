@@ -201,7 +201,7 @@ public class DashboardReservation extends HttpServlet {
         
         for(Reservation reservation : reservations) {
         	Map<String,String> SingleReservation=new HashMap<String,String>();
-        	SingleReservation.put("title","Mohamed Amine Benaicha");
+        	SingleReservation.put("title","Amiri MED");
         	SingleReservation.put("start",validation.confirmedReservationToJavaScript(reservation));
         	SingleReservation.put("end",validation.endDateReservation(reservation));
         	reservationsTime.add(SingleReservation);

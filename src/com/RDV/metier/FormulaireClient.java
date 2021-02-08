@@ -29,7 +29,7 @@ public class FormulaireClient {
     private static final String CHAMP_NUM_TELEPHONE = "numTelephone";
     private static final String CHAMP_DATE_DEBUT    = "dateDebut";
     private static final String CHAMP_PHOTO_PROFIL  = "photoProfil";
-    private static final String FOLDER_NAME_UPLOAD  = "/inc/inc_Dashboard/assets/images";
+    private static final String FOLDER_NAME_UPLOAD  = "/inc/inc_Front/images";
 
     private static final int    TAILLE_TAMPON       = 10485760;                          // 10
     // MO
@@ -109,8 +109,8 @@ public class FormulaireClient {
         } catch ( Exception e ) {
             setErreur( CHAMP_PASSWORD, e.getMessage() );
         }
-        client.setPassword( password );
-        client.setOldPassword( password );
+        client.setPassword( crypterMotDePasse( password ));
+        client.setOldPassword( crypterMotDePasse( password ));
 
         /* Validation du numero de telephone. */
         try {
@@ -244,7 +244,7 @@ public class FormulaireClient {
         /* Validation du champ mot de passe. */
         try {
             if ( password != null ) {
-                validationMotDePasse( password );
+                validationMotDePasse( crypterMotDePasse( password ) );
             }
         } catch ( Exception e ) {
             setErreur( CHAMP_PASSWORD, e.getMessage() );
@@ -362,7 +362,7 @@ public class FormulaireClient {
                 size--;
             }
         } else {
-            throw new Exception( "Merci de saisir un prenom." );
+            throw new Exception( "Merci de saisir un numéro de telephone." );
         }
     }
 
@@ -587,5 +587,12 @@ public class FormulaireClient {
         }
 
         return client;
+    }
+    /**
+     * Valide le mot de passe saisi.
+     */
+    private String crypterMotDePasse( String motDePasse ) {
+        String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex( motDePasse );
+        return sha256hex;
     }
 }
