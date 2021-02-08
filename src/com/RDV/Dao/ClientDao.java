@@ -1,24 +1,23 @@
 package com.RDV.Dao;
 
-
-
- 
 import java.util.ArrayList;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import com.RDV.beans.Client;
 import com.RDV.util.HibernateUtil;
 
-@SuppressWarnings("rawtypes")
-public class ClientDao extends DaoFactory<Object>{
-	
-	@SuppressWarnings("unchecked")
-	public ClientDao(Class persistentClass) {
-		super(persistentClass);
-		// TODO Auto-generated constructor stub
-	}
+@SuppressWarnings( "rawtypes" )
+public class ClientDao extends DaoFactory<Object> {
 
-	public void saveClient( Client client ) {
+    @SuppressWarnings( "unchecked" )
+    public ClientDao( Class persistentClass ) {
+        super( persistentClass );
+        // TODO Auto-generated constructor stub
+    }
+
+    public void saveClient( Client client ) {
         Transaction transaction = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
@@ -51,9 +50,10 @@ public class ClientDao extends DaoFactory<Object>{
             e.printStackTrace();
         }
     }
-	public Client getClient(int id) {
 
-		Transaction transaction = null;
+    public Client getClient( int id ) {
+
+        Transaction transaction = null;
         Client client = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
@@ -69,55 +69,75 @@ public class ClientDao extends DaoFactory<Object>{
             e.printStackTrace();
         }
         return client;
-	}
-	
-	public Client getClient(String cin) {
+    }
 
-		Transaction transaction = null;
+    public Client getClient( String cin ) {
+
+        Transaction transaction = null;
         Client client = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
-            client =  (Client) session.createQuery("FROM Client C WHERE C.cin = :cin").setParameter("cin", cin).uniqueResult();
+            client = (Client) session.createQuery( "FROM Client C WHERE C.cin = :cin" ).setParameter( "cin", cin )
+                    .uniqueResult();
             // commit transaction
             transaction.commit();
-        } catch ( Exception e ) {
-            if ( transaction != null ) {
-                transaction.rollback();
+            if ( client == null ) {
+                return null;
             }
-            e.printStackTrace();
+        } catch ( Exception e ) {
+            return null;
         }
         return client;
-	}
-	
-	public boolean existsClient(String cin) {
+    }
 
-		Transaction transaction = null;
+    public int getClientByCin( String cin ) {
+
+        Transaction transaction = null;
+        int numberOfClientWithCin = 0;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+            numberOfClientWithCin = (Integer) session
+                    .createQuery( "select (count(C) > 0) FROM Client C WHERE C.cin = :cin" ).setParameter( "cin", cin )
+                    .uniqueResult();
+            // commit transaction
+            transaction.commit();
+        } catch ( Exception e ) {
+            return 0;
+        }
+        return numberOfClientWithCin;
+
+    }
+
+    public boolean existsClient( String cin ) {
+
+        Transaction transaction = null;
         Client client = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
-            client =  (Client) session.createQuery("FROM Client C WHERE C.cin = :cin").setParameter("cin", cin).uniqueResult();
+            client = (Client) session.createQuery( "FROM Client C WHERE C.cin = :cin" ).setParameter( "cin", cin )
+                    .uniqueResult();
             // commit transaction
             transaction.commit();
-            if(client == null) {
-            	return false;
+            if ( client == null ) {
+                return false;
             }
         } catch ( Exception e ) {
             if ( transaction != null ) {
-                transaction.rollback();
                 return false;
             }
             e.printStackTrace();
             return false;
         }
         return true;
-	}
-	
-	
-	@SuppressWarnings( "unchecked" )
+    }
+
+    @SuppressWarnings( "unchecked" )
     public ArrayList<Client> getAllClient() {
 
         Transaction transaction = null;
@@ -139,34 +159,37 @@ public class ClientDao extends DaoFactory<Object>{
         }
         return listOfClient;
     }
-	public Client validate(String email, String password) {
+
+    public Client validate( String email, String password ) {
         Transaction transaction = null;
         Client client = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
             transaction = session.beginTransaction();
-            System.out.println("Ana hnaaaa Client taniiiii 1");
- 
-            client =  (Client) session.createQuery("FROM Client C WHERE C.email = :email").setParameter("email", email).uniqueResult();
-            System.out.println("Ana hnaaaa Client taniiiii 2");
-            
-            if (client != null && client.getPassword().equals(password)) {
-            	 System.out.println("Ana hnaaaa Client taniiiii 3");
+            System.out.println( "Ana hnaaaa Client taniiiii 1" );
+
+            client = (Client) session.createQuery( "FROM Client C WHERE C.email = :email" )
+                    .setParameter( "email", email ).uniqueResult();
+            System.out.println( "Ana hnaaaa Client taniiiii 2" );
+
+            if ( client != null && client.getPassword().equals( password ) ) {
+                System.out.println( "Ana hnaaaa Client taniiiii 3" );
                 return client;
             }
             // commit transaction
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
+        } catch ( Exception e ) {
+            if ( transaction != null ) {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
         return null;
     }
-	public Client getClientE(String email) {
 
-		Transaction transaction = null;
+    public Client getClientE( String email ) {
+
+        Transaction transaction = null;
         Client client = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
             // start a transaction
@@ -182,5 +205,5 @@ public class ClientDao extends DaoFactory<Object>{
             e.printStackTrace();
         }
         return client;
-}
+    }
 }

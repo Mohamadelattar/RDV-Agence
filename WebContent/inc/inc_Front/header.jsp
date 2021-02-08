@@ -56,5 +56,3 @@
 		</div>
 
 	</header>
-    
-	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>

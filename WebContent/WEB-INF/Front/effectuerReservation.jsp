@@ -6,18 +6,13 @@
 <head>
 	<title>Appointement</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=1">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=2">
 	
 </head>
 <body>
 	
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
-	
-	<c:if test="${reservation != null && empty validation.erreurs }" >
-		<!--  Reservation Effectuee -->
-		<span class="alert alert-success text-center">Votre réservation est effectuée <b>Veuillez attendez la confirmation par email</b></span>
-	</c:if>
 	
 	<c:if test="${!empty validation.erreurs }" >
 		<!-- Js Script to auto click on this button -->
@@ -27,65 +22,83 @@
    	 	</script>
 	</c:if>
 	
-	<section class="my-5" id="appointement-section">
-		<div class="container">
-			<div class="mx-auto appointement">
-				<div class="reservation-header py-2">
-					<h3 class="text-center">Prendre RDV en cabinet</h3>
-				</div>
-				<div class="row" id="reservationTable">
-					<div class="col-4 pr-0">
-						<div class="info-agency px-4 pt-4">
-							<div class="profil-image mx-auto">
-								<img src="inc/inc_Dashboard/assets/images/benaicha.jpg" class="d-block img-fluid profil-image-source">
-								<a href="#"><i class="fas fa-camera profil-image-update"></i></a>
-							</div>
-							<div class="profil-info mt-4">
-								<h4 class="text-center"><b>Dr.</b>Mohamed Amine Benaicha</h4>
-								<hr>
-								<ul class="list-info pl-0">
-									<li class="list-info-item">
-										<ul class="list-inline">
-											<li class="list-inline-item">
-												<i class="fas fa-map-marker-alt mr-2"></i>
-												From 
-											</li>
-											<li class="list-inline-item float-right">
-												<b>Beni Mellal </b>
-											</li>
-										</ul>
-									</li>
-									<li class="list-info-item">
-										<ul class="list-inline">
-											<li class="list-inline-item">
-												<i class="fas fa-user mr-2"></i>
-												Name
-											</li>
-											<li class="list-inline-item float-right">
-												<b>Benaicha </b> 
-											</li>
-										</ul>
-									</li>
-									<li class="list-info-item">
-										<ul class="list-inline">
-											<li class="list-inline-item">
-												<i class="fas fa-envelope mr-2"></i>
-												Email
-											</li>
-											<li class="list-inline-item float-right">
-												<b>amine98ben90@gmail.com </b> 
-											</li>
-										</ul>
-									</li>
-								</ul>
-								<div class="text-center mb-4">
-									<a href="#" class="btn-portofolio">Voir Portofolio</a>
-								</div>
-							</div>
+	<!-- Effectuer Reservation -->
+	<section class="profil pt-5 pb-5">
+		<!-- Profil Client -->
+		<c:if test="${reservation != null && empty validation.erreurs }" >
+			<!--  Reservation Effectuee -->
+			<div class="text-center mx-auto mb-5" style="width:70%;">
+				<span class="alert alert-success">Votre réservation est effectuée <b>Veuillez attendez la confirmation par email</b></span>
+			</div>	
+		</c:if>
+		<div class="container-md px-4 px-md-5 mx-md-5 ">
+			<div class="row">
+				<div class="col-12 col-lg-4 mb-4">
+					<div class="profil-body px-4 pt-4">
+						<ul class="list-inline mb-5">
+							<li class="list-inline-item float-left">
+								<img src="inc/inc_Front/images/medal.svg" class="img-fluid d-block badge-image">
+							</li>
+						</ul>
+						<div class="profil-image mx-auto">
+							<img src="inc/inc_Front/images/doctor.png" class="d-block img-fluid profil-image-doctor">
+						</div>
+						<div class="profil-info mt-4">
+							<h4 class="text-center">Mohamed Amine Benaicha</h4>
+							<hr>
+							<ul class="list-info pl-0">
+								<li class="list-info-item">
+									<ul class="list-inline">
+										<li class="list-inline-item">
+											<i class="fas fa-map-marker-alt mr-2"></i>
+											From 
+										</li>
+										<li class="list-inline-item float-right">
+											<b>Beni Mellal </b>
+										</li>
+									</ul>
+								</li>
+								<li class="list-info-item">
+									<ul class="list-inline">
+										<li class="list-inline-item">
+											<i class="fas fa-user mr-2"></i>
+											Name
+										</li>
+										<li class="list-inline-item float-right">
+											<b>Benaicha </b> 
+										</li>
+									</ul>
+								</li>
+								<li class="list-info-item">
+									<ul class="list-inline">
+										<li class="list-inline-item">
+											<i class="fas fa-envelope mr-2"></i>
+											Email
+										</li>
+										<li class="list-inline-item float-right">
+											<b>amine98ben90@gmail.com </b> 
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
-					<div class="col-8 pl-0">
-						<div class="reservation mt-4">
+				</div>
+
+				<div class="col-12 col-lg-8">
+					<div class="info-update ml-lg-3 h-100">
+						<div class="info-update-header">
+							<h2 class="pl-5 pt-5">Effectuer une réservation</h2>
+							<ul class="list-inline list-menu pl-4">
+								<li class="list-inline-item non-active-option active-option" id="option-1">
+									Prendre un Rendez Vous
+								</li>
+								<li class="list-inline-item non-active-option" id="option-2">
+									Vos Réservations
+								</li>
+							</ul>
+						</div>
+						<div class="menu-option reservation info-update-body px-4 pt-4 d-block pb-3">
 							<div class="reservation-body pb-4" id="reservationTableRows">
 								<div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
 								  	<div class="carousel-inner">
@@ -182,11 +195,42 @@
 									  </a>
 								</div>
 							</div>
+							<div class="text-center">
+								<a class="btn-reservation" id="btnPlus">
+									Plus
+								</a>
+							</div>
+						</div>
+						<div class="menu-option menu-reservation d-none">
+							<!-- Show it if the client has nos reservations -->
+							<div class="pl-5 pt-5 ">
+								<h4>
+									<i class="far fa-frown"></i>
+									Vous n'avez effectuer aucune reservation !
+								</h4>	
+								<div class="d-block text-center mt-5">
+									<a href="#" class="btn-profil-reservation">
+									Prendre un RDV
+								</a>
+								</div>
+							</div>
+							<!-- Show it if the client has reservations -->
+							<div class="pl-5 pt-5">
+								<div class="client-reservations mx-auto d-flex justify-content-around mb-3">
+									<i class="far fa-calendar mr-3 d-block"></i>
+									<span class="mr-3 d-block">2021-01-03</span>
+									<span class="mr-3 d-block">09:00</span>
+								</div>
+								<div class="client-reservations mx-auto d-flex justify-content-around mb-3">
+									<i class="far fa-calendar mr-3 d-block"></i>
+									<span class="mr-3 d-block">2021-01-03</span>
+									<span class="mr-3 d-block">09:00</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 	
 	<!-- Appointement Modal -->
@@ -306,6 +350,7 @@
 	<!-- Appointement Js -->
 	<script>
 
+	/* On prend les reservations confirmees a partir de La BD */
 		var reservationDates = [
 			<c:forEach items="${reservationBtns}" var="reservationBtnData">
 		    	{
@@ -316,6 +361,7 @@
 		    </c:forEach>
 		];
 
+		/* Un button Toggle selon Le staut du client */
 		var btnToggleValue=
 		<c:choose>
 			<c:when test="${client != null}">
@@ -328,7 +374,8 @@
 		;
 
 		console.log(btnToggleValue);
-	
+
+		/* Les heures de fonctionnement de l'agence */
 		function getArrayOfHours(){
 			var arrayOfHours = [], i, j;
 
@@ -348,12 +395,17 @@
 			return arrayOfHours;
 		}
 
+		/* Un tableau global des heures de fontionnement de l'agence */
+		var arrayOfHours = getArrayOfHours();
+
+		/* Une fonction pour recuperer le nom de la date */
 		function getDateName(today){
 			var days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 			var dayName = days[today.getDay()];
 			return dayName;
 		}
 
+		/* customiser les buttons de reservations */
 		function customizeReservationBtn(reservationBtn,idReservation){
 
 			if(reservationBtn.statut === 'valable'){
@@ -373,8 +425,7 @@
 			}
 		}
 
-		var arrayOfHours = getArrayOfHours();
-
+		/* Une fontion pour creer un button de reservtion activee*/
 		function setReservationButton(heure,idReservation,classNameReservation,dataTarget,dataToggle,heure,date){
 			var btn = document.createElement('a');
 		    var btnText = document.createTextNode(heure);
@@ -383,11 +434,23 @@
 		    btn.setAttribute('data-target',dataTarget);
 		    btn.setAttribute('reservation-heure',heure);
 		    btn.setAttribute('reservation-date',date);
-		    btn.className = classNameReservation + " d-block mb-3";
+		    btn.className = classNameReservation + " mb-3";
 		    $(idReservation).children('.list-reservations').append( btn );
 		}
 
+		/* Une fontion pour creer un button de reservtion desactivee*/
+		function reservationsTimeButtonsDisabled(arrayOfHours,idReservation,todayDate){
+			for( var i=0;i<arrayOfHours.length; i++){
+				var hour = arrayOfHours[i].split(":");
+				if( parseInt(hour[0]) >= 11){
+					setReservationButton(arrayOfHours[i],idReservation,'btn-reservation-disabled d-none','','',arrayOfHours[i],todayDate);
+				}else{
+					setReservationButton(arrayOfHours[i],idReservation,'btn-reservation-disabled d-block','','',arrayOfHours[i],todayDate);
+				}
+			}
+		}
 
+		
 		function reservationsTimeButtons(reservationDates,idReservation,todayDate){
 			var arrayOfHoursInSpecialDate = [];
 			reservationDates.forEach(function (reservationBtn, index) {
@@ -396,11 +459,6 @@
 			setReservationButtons(arrayOfHoursInSpecialDate,arrayOfHours,idReservation,todayDate);
 		}
 
-		function reservationsTimeButtonsDisabled(arrayOfHours,idReservation,todayDate){
-			for( var i=0;i<arrayOfHours.length; i++){
-				setReservationButton(arrayOfHours[i],idReservation,'btn-reservation-disabled','','',arrayOfHours[i],todayDate);
-			}
-		}
 
 		function setReservationButtons(arrayOfHoursInSpecialDate,arrayOfHours,idReservation,todayDate){
 			for( var i=0;i<arrayOfHours.length; i++){
@@ -408,12 +466,24 @@
 				for( var j=0 ; j<arrayOfHoursInSpecialDate.length; j++){
 					if( arrayOfHours[i] === arrayOfHoursInSpecialDate[j]){
 						setBtnDisabled = true;
-						setReservationButton(arrayOfHoursInSpecialDate[j],idReservation,'btn-reservation-disabled','','',arrayOfHours[i],todayDate);
+						var hour = arrayOfHours[i].split(":");
+						if( parseInt(hour[0]) >= 11){
+							setReservationButton(arrayOfHoursInSpecialDate[j],idReservation,'btn-reservation-disabled d-none','','',arrayOfHours[i],todayDate);
+						}else{
+							setReservationButton(arrayOfHoursInSpecialDate[j],idReservation,'btn-reservation-disabled d-block','','',arrayOfHours[i],todayDate);
+						}
 						break;
 					}
 				}
 				if( setBtnDisabled === false ){
-					setReservationButton(arrayOfHours[i],idReservation,'btn-reservation',btnToggleValue,'modal',arrayOfHours[i],todayDate);
+					var hour = arrayOfHours[i].split(":");
+					console.log(parseInt(hour[0]));
+
+					if( parseInt(hour[0]) >= 11){
+						setReservationButton(arrayOfHours[i],idReservation,'btn-reservation d-none',btnToggleValue,'modal',arrayOfHours[i],todayDate);
+					}else{
+						setReservationButton(arrayOfHours[i],idReservation,'btn-reservation d-block',btnToggleValue,'modal',arrayOfHours[i],todayDate);
+					}
 				}
 			}
 		}
@@ -437,6 +507,7 @@
 			return todayReservations;
 		}
 
+		/*Une fonction pour remplir notre Html avec les donnes dynamiques ( date - heure et buttons )*/
 		function setDatesData(date){
 			for(var i=0 ; i<7 ;i++){
 				var today = date.addDays(i);
@@ -461,6 +532,7 @@
 			}
 		}
 
+
 		var date = new Date();
 
 		$(document).ready(function(){
@@ -474,7 +546,6 @@
 			  	console.log('clickeeed');
 				var reservationHeure = $(this).attr('reservation-heure');
 				var reservationDate = $(this).attr('reservation-date');
-
 				$('#InputHeure').val(reservationHeure);
 				$('#InputDate').val(reservationDate);
 				
@@ -486,6 +557,27 @@
 			        $(this).removeAttr('disabled');
 			    })
 		  });
+
+		  /*Fonction Pour Afficher Tous Les Reservtions*/
+
+			$('#btnPlus').click(function(){
+				console.log('btnPlus');
+				$('.btn-reservation').each(function(){
+					console.log('yeees');
+					if($(this).hasClass('d-none')){
+						$(this).removeClass('d-none');
+						$(this).addClass('d-block');
+					}
+				});
+				$('.btn-reservation-disabled').each(function(){
+					if($(this).hasClass('d-none')){
+						$(this).removeClass('d-none');
+						$(this).addClass('d-block');
+					}
+				});
+
+				$(this).remove();
+			});
 
 		});
 
