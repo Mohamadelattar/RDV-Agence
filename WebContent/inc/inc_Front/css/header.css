@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
+@font-face {
+    font-family: clinmedix-icon;
+    src:url("fonts/clinmedix-icon517c.eot");
+}
+
+.first-header{
+	margin-top: 2rem;
+	margin-bottom: 1.4rem;
+}
+.visit-profil-client,.logout-client{
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+}
+.logout-client{
+	border: 1px solid #e5e9ed;
+	position: relative;
+}
+.logout-client a{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #555555;
+}
+.logout-client a:hover{
+	text-decoration: none;
+	color: #007c92;
+}
+.visit-profil-client img{
+	border-radius: 100%;
+}
+.register{
+	font-size: 14px;
+	color: #555555;
+	margin-left: 60px;
+	display: inline-block;
+	border: 1px solid #e5e9ed;
+	padding: 9px 26px 9px 60px;
+	border-radius: 50px;
+	position: relative;
+	text-transform: uppercase;
+}
+.register i{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	line-height: 38px;
+	border: 1px solid #e5e9ed;
+	border-radius: 50%;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	-webkit-transition: 2s;
+	transition: 2s;
+	margin-right: 12px;
+	color: #007c92;
+}
+.register:hover{
+	text-decoration: none;
+	color: #007c92;
+}
+.social-media-item-2 a i{
+	color: #c3c6c9;
+}
+.social-media-item-2 a i:hover{
+	color: #007c92;
+	transition: 0.5s;
+}
+
+.header-logo{
+	width: 20%;
+}
+.header-menu li{
+	margin-right: 25px !important;
+}
+.header-menu li span{
+	line-height: 1.5em;
+	font-weight: 400;
+	color: #333333;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 14px;
+}
+.bg-light{
+	border-top: 1px solid #eeeeee;
+	background-color: #fff !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    font-weight: 300;
+    font-size: 14px;
+    margin-right: 20px;
+    text-transform: uppercase;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+	font-size: 14px;
+	display: block;
+	font-weight: 300 !important;
+	color: #007c92;
+	font-family: 'Oxygen', sans-serif;
+	transition: 0.5s;
+}
+.navbar-nav{
+	padding-top: 0.8rem !important;
+	padding-bottom: 0.8rem !important;
+}

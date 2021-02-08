@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&family=Roboto&display=swap');
+
+.portfolio-wrap{
+	position: relative;
+}
+.doctor-span{
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%,-20%);
+	font-size: 48px;
+	color: #ab1c6e;
+	font-family: "Oxygen", sans-serif;
+	font-weight: bold;
+}
+.doctor-info{
+    background: #10AEAD;
+    padding-bottom: 0px;
+    padding-bottom: 45px;
+}
+.doctor-info hr{
+	margin-bottom: 30px;
+	margin-top: 30px;
+	background-color: #ffffffab;
+}
+.profil-doctor h4{
+	font-size: 30px;
+	font-family: 'Oxygen', sans-serif;
+	color: #FFFFFF;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+.profil-doctor p{
+	font-size: 14px;
+	font-family: "Oxygen",sans-serif;
+	color: #FFFFFF;
+	font-weight: 400;
+}
+.doctor-info-list li{
+	color: #fff !important;
+}
+.publication-title-doctor{
+	color: #333333;
+	font-size: 32px;
+	font-family: "Oxygen",sans-serif;
+	font-weight: bold;
+}
+.blog-post-doctor p{
+	color: #666666;
+	font-size: 15px;
+	font-weight: 400;
+}
+.portfolio-quote{
+	border-left: 2px solid #10AEAD;
+}
+.portfolio-quote p{
+    font-size: 24px;
+    color: #333333;
+    line-height: 1.3em;
+}
+.list-degree{
+	list-style-type: none;
+}
+.list-degree-item{
+	color: #1c1c1c;
+	font-size: 15px;
+	font-family: "Oxygen",sans-serif;
+	font-weight: bold;
+	margin-bottom: 7px;
+}

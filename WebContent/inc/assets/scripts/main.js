@@ -60,3 +60,20 @@ $(window).resize(function(){
   }
   $('#navHeader').attr('class',classes);
 });
+
+/* JavaScript Pour Profil*/
+
+$(document).ready(function() {
+  $(".non-active-option").click(function () {
+      if( $(this).attr('id') == 'option-1'){
+        $('.menu-option').eq(1).removeClass("d-block");
+        $('.menu-option').eq(0).addClass("d-block");
+      }else{
+        $('.menu-option').eq(0).removeClass("d-block");
+        $('.menu-option').eq(0).addClass("d-none");
+        $('.menu-option').eq(1).addClass("d-block");
+      }
+      $(".non-active-option").removeClass("active-option");
+      $(this).addClass("active-option");   
+  });
+});

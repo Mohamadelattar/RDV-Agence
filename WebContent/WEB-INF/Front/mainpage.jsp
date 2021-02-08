@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=1">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/publication.css?version=1">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
@@ -187,7 +188,7 @@
 									|
 								</li>
 							</ul>
-							<h4><a class="" href="#">${publication.titre}</a></h4>
+							<h4><a class="" href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>">${publication.titre}</a></h4>
 							<div class="module overflow">
 							
 							<p class="paragraph-excerpt "  >
@@ -238,7 +239,12 @@
 								</li>
 							</ul>
 							<h4><a class="" href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>">${publication.titre}</a></h4>
-							<p class="paragraph-excerpt " ></p>
+							<div class="module overflow">
+							
+							<p class="paragraph-excerpt "  >
+								<c:out value="${publication.contenu }"/>
+							</p>
+							</div>
 							<a href="post?id=<c:out value='${publication.id}' />&idEmp=<c:out value="${publication.idEmploye}"/>" class="read-more">
 								Read More
 							</a>

@@ -13,6 +13,9 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.internal.build.AllowSysOut;
 
 import com.RDV.Dao.ClientDao;
 import com.RDV.beans.Client;
@@ -23,8 +26,8 @@ public class FrontClient extends HttpServlet {
     private static final long   serialVersionUID = 1L;
 
     private static final String VUE              = "/WEB-INF/Front/client.jsp";
-    private static final String VUE_1            = "modifierEmploye.jsp";
-    private static final String VUE_2            = "modifierPhotoProfil.jsp";
+    private static final String VUE_1            = "/WEB-INF/Front/client.jsp";
+    private static final String VUE_2            = "/WEB-INF/Front/modifierPhotoProfil.jsp";
     private static final String FORMULAIRE       = "formulaire";
     private static final String CLIENT          = "client";
     private static final String CLIENTS         = "clients";
@@ -37,7 +40,7 @@ public class FrontClient extends HttpServlet {
     }
 
     public void init() {
-    	clientDao = new ClientDao(Client.class);
+        clientDao = new ClientDao(null);
     }
 
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
@@ -63,20 +66,24 @@ public class FrontClient extends HttpServlet {
         } else {
             switch ( action ) {
             case "modifier":
-                listClient( request, response, VUE_1 );
+                listClient( request, response, VUE_2 );
                 break;
             case "modifierPhotoProfil":
                 listClient( request, response, VUE_2 );
+                break;
             default:
                 try {
-                	listClient( request, response, VUE_1 );
+                	listClients( request, response);
                 } catch ( ServletException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch ( IOException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                } catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 break;
             }
         }
@@ -155,8 +162,7 @@ public class FrontClient extends HttpServlet {
 
         request.setAttribute( FORMULAIRE, formulaire );
         request.setAttribute( CLIENT, client );
-
-        this.getServletContext().getRequestDispatcher( VUE_2 ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( VUE_1 ).forward( request, response );
     }
 
     private void listClients( HttpServletRequest request, HttpServletResponse response )

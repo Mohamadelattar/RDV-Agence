@@ -1,22 +1,22 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 @font-face {
     font-family: GilroyExtraBold;
-    src:url("fonts/Gilroy-ExtraBold.otf");
+    src:url("inc/assets/fonts/Gilroy-ExtraBold.otf");
 }
 @font-face {
     font-family: GilroyLight;
-    src:url("fonts/Gilroy-Light.otf");
+    src:url("inc/assets/fonts/Gilroy-Light.otf");
 }
 @font-face {
     font-family: GiltroyRegular;
-    src:url("fonts/Gilroy-Regular.ttf");
+    src:url("inc/assets/fonts/Gilroy-Regular.ttf");
 }
 @font-face {
     font-family: GiltroyBold;
-    src:url("fonts/Gilroy-Bold.ttf");
+    src:url("inc/assets/fonts/Gilroy-Bold.ttf");
 }
 
 
@@ -248,14 +248,10 @@
 	font-family: 'GiltroyRegular','sans-serif';
 	font-weight: bold;
 }
-
 .shape{
 	border-bottom-right-radius: 100px;
 	border-bottom-left-radius: 100px;
-	 	
 }
-
-
 .support-description{
 	margin-bottom: 2rem;
 }
@@ -1182,4 +1178,9 @@ footer {
 	margin-left: 40px;
 	font-size: 10px;
 	width: 10px !important;
+}
+.mrgn{
+	padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 16px;
 }

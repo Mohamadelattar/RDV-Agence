@@ -18,6 +18,8 @@ public class ClientDao extends DaoFactory<Object>{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public void saveClient( Client client ) {
         Transaction transaction = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {

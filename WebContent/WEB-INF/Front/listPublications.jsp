@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/publications.css">
+	
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 <body>

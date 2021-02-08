@@ -121,7 +121,7 @@ public class DashboardAnnonce extends HttpServlet {
 	private void listAnnonces(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		ArrayList < Annonce > annonces = (ArrayList<Annonce>) annonceDao.getAll("from Annonce");
         request.setAttribute(ATT_ANNONCES,annonces);
-        this.getServletContext().getRequestDispatcher( VUE_ANNONCE ).forward( request, response );;
+        this.getServletContext().getRequestDispatcher( VUE_ANNONCE ).forward( request, response );
     }
 
     private void ajouterForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

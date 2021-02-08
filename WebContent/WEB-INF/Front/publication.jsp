@@ -8,6 +8,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
+		<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
+	
 </head>
 <body>
 	
@@ -21,7 +23,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="mb-3 d-flex justify-content-between">
                         <h3>
-                        	<a href="#" class="category-link">Nom du catégorie</a>
+                        	<a href="#" class="category-link">Publications</a>
                         </h3>
                     </div>
                     <h1 class="publication-title">${publication.titre}</h1>
@@ -84,7 +86,7 @@
                             <c:forEach items="${publications}" var="item">
                             <div class="recent-posts-publications d-flex justify-content-between mb-3">
                                 <div class="recent-posts-publications-image">
-                                    <img width="100px" height="100px" src="inc/inc_Dashboard/assets/images/<c:out value="${item.image}"/>" class="d-block img-fluid">
+                                    <img height="78px"  width="78px" src="inc/inc_Dashboard/assets/images/<c:out value="${item.image}"/>" class="d-block img-fluid">
                                 </div>
                                 <div class="recent-posts-publications-info ml-3">
                                     <h5>
