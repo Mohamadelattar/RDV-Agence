@@ -1,0 +1,88 @@
+#testimonial{
+	position: relative;
+	padding-top:100px;
+	padding-bottom:300px;
+}
+.testimonial-box::before{
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 176px;
+	width: 154px;
+	height: 202px;
+	margin-left: 80px;
+	background: url(decor.png) no-repeat;
+}
+
+.testimonial-caroussel::before{
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 70px;
+	right: 0;
+	bottom: 94px;
+	box-shadow: 0px 15px 40px 0px rgba(13, 29, 13, 0.1);
+	background: #fff;
+	max-width: 970px;
+	margin: 0 auto;
+	border-radius: 10px;
+	height: 45%;
+}
+.testimonial-box::after{
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 40px;
+    width: 130px;
+    height: 130px;
+    background: url(decor.png) no-repeat;
+    margin-right: 80px;
+    z-index: -1;
+}
+.testimonial-client-image{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	position: absolute;
+	top: 0%;
+	left: 45.5%;
+	border: 6px solid #fff;
+	box-shadow: 0px 15px 40px 0px rgba(13, 29, 13, 0.2);
+}
+.testimonial-client-image img{
+	border-radius: 100%;
+}
+.testimonial-paragraph-quote{
+	font-size: 20px;
+	line-height: 40px;
+	font-family: 'Roboto', sans-serif;
+	padding-right: 6.5rem;
+	padding-left: 6.5rem;
+}
+.testimonial-client-name{
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color: #007c92;
+}
+/*Caroussel controls*/
+
+#testimonial .carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23007c92' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+	background-color: #fff;
+	padding: 0px;
+	margin-right: 0px;
+	font-size: 10px;
+	color: #007bff;
+	width: 15px !important;
+}
+
+#testimonial .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23007c92' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+	background-color: #fff;
+	padding: 0px;
+	margin-left: 0px;
+	font-size: 10px;
+	width: 15px !important;
+	color: #007bff;
+}

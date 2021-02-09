@@ -4,19 +4,19 @@
 
 @font-face {
     font-family: GilroyExtraBold;
-    src:url("inc/assets/fonts/Gilroy-ExtraBold.otf");
+    src:url("fonts/Gilroy-ExtraBold.otf");
 }
 @font-face {
     font-family: GilroyLight;
-    src:url("inc/assets/fonts/Gilroy-Light.otf");
+    src:url("fonts/Gilroy-Light.otf");
 }
 @font-face {
     font-family: GiltroyRegular;
-    src:url("inc/assets/fonts/Gilroy-Regular.ttf");
+    src:url("fonts/Gilroy-Regular.ttf");
 }
 @font-face {
     font-family: GiltroyBold;
-    src:url("inc/assets/fonts/Gilroy-Bold.ttf");
+    src:url("fonts/Gilroy-Bold.ttf");
 }
 
 
@@ -251,6 +251,7 @@
 .shape{
 	border-bottom-right-radius: 100px;
 	border-bottom-left-radius: 100px;
+	
 }
 .support-description{
 	margin-bottom: 2rem;
@@ -937,80 +938,93 @@ ol,ul{
 li{
     cursor: auto;
 }
-footer {
-    font-size:16px;
-    padding:80px 0 40px;
-    background-color:#3b4c66;
-    color:#fff;
+#main-footer{
+	background-color: #141414;
 }
-.footer-container{
-    max-width:1160px;
-    margin-right:auto;
-    margin-left:auto
+.footer-list-item{
+    line-height: 25px;
+    margin-bottom: 9px;
+    color: #fff;
+    font-size: 15px;
 }
-.footer-menu {
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
-    padding-bottom:80px!important
+.footer-logo-image img{
+	width: 170px;
 }
-.footer-menu figure {
-    margin-bottom:72px!important
+.footer-list-item p{
+	font-family: 'Roboto',sans-serif;
+	font-size: 15px;
 }
-.reseaux{
-    line-height:50px
+.footer-list-item i{
+	color: #ab1c6e !important;
 }
-.footer-menu nav{
-    margin-left:auto;
-    -ms-flex-wrap:wrap;
-    flex-wrap:wrap;
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
+
+.footer-list-title{
+	color: #FFFFFF;
+	font-size: 20px;
+	font-family: "Oxygen", sans-serif;
+	font-weight: bold;
 }
-.footer-menu nav>ul{
-    width:186px
+.footer-list-title::before {
+    content: "";
+    width: 50px;
+    height: 4px;
+    background-color: #ab1c6e;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    left: 72px;
 }
-.footer-menu nav li{
-    line-height:24px;
-    margin-bottom:24px
+.footer-list-item-hover a{
+	display: block;
+	color: #f7f7f7;
+	font-size: 14px;
+	font-family: "Oxygen";
+	font-weight: 500;
+	position: relative;
+	padding-left: 0;
 }
-.footer-menu nav a{
-    display:inline-block;
-    position:relative;
-    line-height:24px
+.footer-list-item-hover i{
+	visibility: hidden;
+	transition: all .4s ease;
 }
-.footer-menu nav a::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    -webkit-transform:scaleX(0);
-    transform:scaleX(0);
-    height:1px;
-    bottom:0;
-    left:0;
-    background-color:currentColor;
-    -webkit-transform-origin:bottom right;
-    transform-origin:bottom right;
-    -webkit-transition:-webkit-transform .4s cubic-bezier(.86,0,.07,1);
-    transition:-webkit-transform .4s cubic-bezier(.86,0,.07,1);
-    transition:transform .4s cubic-bezier(.86,0,.07,1);
-    transition:transform .4s cubic-bezier(.86,0,.07,1),-webkit-transform .4s cubic-bezier(.86,0,.07,1)
+.footer-list-item-hover:hover a{
+	padding-left: 10px;
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+	color: #129DE8;
+	text-decoration: none;
 }
-.footer-menu nav a:hover::after{
-    -webkit-transform:scaleX(1);
-    transform:scaleX(1);
-    -webkit-transform-origin:bottom left;
-    transform-origin:bottom left;
+.footer-list-item-hover:hover i{
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+	visibility: visible;
+	color: #fff !important;
 }
-.social-links li{
-    display:inline-block;
-    vertical-align:middle;
-    margin-right:18px;
+.work-box{
+	background-color: #f6f6f6;
+	border-radius: 15px;
 }
-.footer-middle{
-    border-bottom:1px solid rgba(246,248,252,.5);
-    padding-bottom:40px!important
+.work-list-item{
+	font-family: 'Oxygen' , sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	color: #ab1c6e !important;
+	border-bottom: 1px solid #CBCBCB;
+}
+.work-list-item span{
+	color: #666666;
+	font-size: 14px;
+	display: block;
+	vertical-align: middle;
+	font-weight: 500;
+}
+.work-list-item:last-child{
+	border-bottom: 0px solid #CBCBCB;
 }
 .clients-count{
     display:-webkit-box;
@@ -1184,3 +1198,10 @@ footer {
     padding-bottom: 8px;
     margin-left: 16px;
 }
+.mb-2, .my-2 {
+    margin-top: 5px;
+    text-align: center;
+    line-height: 0.6;
+}
+
+ 

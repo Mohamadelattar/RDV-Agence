@@ -43,6 +43,7 @@ public class ClientDao extends DaoFactory<Object>{
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
+            client.setPassword(this.crypterMotDePasse(client.getPassword()));
             session.update( client );
             // commit transaction
             transaction.commit();
@@ -141,6 +142,10 @@ public class ClientDao extends DaoFactory<Object>{
         }
         return listOfClient;
     }
+	 private String crypterMotDePasse( String motDePasse ) {
+	        String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex( motDePasse );
+	        return sha256hex;
+	    }
 	public Client validate(String email, String password) {
         Transaction transaction = null;
         Client client = null;
@@ -148,7 +153,8 @@ public class ClientDao extends DaoFactory<Object>{
             // start a transaction
             transaction = session.beginTransaction();
             System.out.println("Ana hnaaaa Client taniiiii 1");
- 
+            password = this.crypterMotDePasse(password);
+            System.out.println(password);
             client =  (Client) session.createQuery("FROM Client C WHERE C.email = :email").setParameter("email", email).uniqueResult();
             System.out.println("Ana hnaaaa Client taniiiii 2");
             

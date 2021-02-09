@@ -13,9 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.RDV.Dao.ClientDao;
 import com.RDV.Dao.ReservationDAO;
+import com.RDV.beans.Client;
 import com.RDV.beans.Reservation;
 import com.RDV.metier.ValidationReservation;
+import com.RDV.util.Mailer;
+ 
 
 /**
  * Servlet implementation class ReservationServlet
@@ -201,7 +205,7 @@ public class DashboardReservation extends HttpServlet {
         
         for(Reservation reservation : reservations) {
         	Map<String,String> SingleReservation=new HashMap<String,String>();
-        	SingleReservation.put("title","Mohamed Amine Benaicha");
+        	SingleReservation.put("title","Amiri MED");
         	SingleReservation.put("start",validation.confirmedReservationToJavaScript(reservation));
         	SingleReservation.put("end",validation.endDateReservation(reservation));
         	reservationsTime.add(SingleReservation);
@@ -223,12 +227,25 @@ public class DashboardReservation extends HttpServlet {
         this.getServletContext().getRequestDispatcher( VUE_3 ).forward( request, response );
     }
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	private void confirmReservation( HttpServletRequest request, HttpServletResponse response ,String statut)
             throws ServletException, IOException, ParseException {
 		int id = Integer.parseInt( request.getParameter( "id" ) );
         Reservation reservation = (Reservation) reservationDao.getById( id );
         reservation.setStatutReservation(statut);
+        response.setContentType("text/html");  
+        ClientDao clientDao = new ClientDao(Client.class);
+        Client client = (Client) clientDao.getById(reservation.getIdClient());
+        String nom = client.getNom();
+        String prenom = client.getPrenom();
+        String dateReservation = reservation.getDateReservation();
+        String heureReservation = reservation.getHeureReservation();
+        String to = client.getEmail();
+        String subject="Reservation Validée";  
+       String msg="Bonjour Mr/Mme" +nom +" "+prenom+"\n"+"Nous vous informe que votre réservation pour la date :"+dateReservation+" à l'heure:"+heureReservation+"\n"+"est accepté par notre agence soyez biznvenu chez nous  "; 
+              
+        Mailer.send(to, subject, msg);  
+ 
         reservationDao.update( reservation );
         response.sendRedirect( request.getContextPath() + "/" + PATH + "?do=lister" );
 	}

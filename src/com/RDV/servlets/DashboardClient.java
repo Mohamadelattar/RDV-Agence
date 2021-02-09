@@ -110,7 +110,7 @@ public class DashboardClient extends HttpServlet {
 			throws SQLException, IOException {
 		int id = Integer.parseInt( request.getParameter( "id" ) );
 		clientDao.delete(id);
-		response.sendRedirect("Client");
+		response.sendRedirect("dash-client");
 	}
 
 	/**

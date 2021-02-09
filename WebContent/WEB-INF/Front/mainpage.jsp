@@ -10,15 +10,17 @@
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=1">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/publication.css?version=1">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/testimonial.css">
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	<!-- Animate libraries -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
  
 	    <!-- javascript -->
-	    
-
- 
  
 </head>
 <body>
@@ -26,35 +28,91 @@
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
 
-	<section class="mt-5">
-		
-		<!-- Main Section -->
-		<div class="container mx-auto">
-			<div class="row">
-				<div class="col-12 col-md-7 d-flex align-items-center">
-					<div class="">
-						<h1 class="section-title mb-4">Système de réservation en ligne pour <span>les sociétés de services</span></h1>
-						<p class="description-paragraph mb-5">Il vous suffit de définir vos services et vos prestataires, d'afficher leur disponibilité, et vous aurez des clients, anciens et nouveaux, qui feront des réservations 24h/24, 7j/7. </p>
-						<ul class="list-inline pt-2 mb-5">
-							<li class="list-inline-item">
-								<a href="?action=effectuerReservation" class="inscription-link">
-									Obtenir un compte gratuit
-								</a>
-							</li>
-							<li class="list-inline-item d-none d-md-inline-block pt-5">
-								<a href="#" class="inscription-link inscription-link-color">
-									Soyez inspirés
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- Image Publicite-->
-				<div class="col-12 col-md-5 mt-3 mt-md-0 px-0">
-					<img src="inc/assets/images/Booking2.png" class="d-block img-fluid">
-				</div>
-			</div>
-		</div>
+	 <!-- Caroussel With text Animations -->
+	<section>
+		<div class="owl-carousel owl-theme">
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-1.jpg" alt="image 1">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>                    
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-2.jpg" alt="images 2">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line animated bounceInLeft"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>                
+	        <div class="item">
+	            <img src="inc/inc_Front/images/image-caroussel-3.jpg" alt="images 3">
+	            <div class="cover">
+	                <div class="container">
+	                    <div class="header-content">
+	                        <div class="line animated bounceInLeft"></div>
+	                        <h2 class="line-title">On prend soin de toi</h2>
+	                        <h1 class="line-main-title d-none d-md-block">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                         <h1 class="line-main-title-low d-block d-md-none">Médicaments de haute qualité aux tarifs les plus bas</h1>
+	                        <ul class="list-inline">
+	                        	<li class="list-inline-item">
+	                        		<a href="#" class="line-rdv">
+	                        			Prendre un Rendez vous
+	                        		</a>
+	                        	</li>
+	                        	<c:if test="${sessionScope.client == null}">
+	                        	<li class="list-inline-item">
+	                        		<a href="#"  data-toggle="modal" data-target="#connexionModal" class="line-connect">
+	                        			Se connecter
+	                        		</a>
+	                        	</li>
+	                        	</c:if>
+	                        </ul>
+	                    </div>
+	                </div>
+	             </div>
+	        </div>
+	    </div>
 	</section>
 
 	<section class="mt-5 pt-5 Fonctionnalites">
@@ -262,58 +320,55 @@
 			</section>
 
 
-	<section class="clients mt-5">
-		
-		<!-- Nos Clients Disent -->
-		<div class="container mx-auto px-3 px-sm-0">
-			<h3 class="section-title section-title-size text-center mb-5">Nos clients <span>disent</span></h3>
-			<div class="row">
-				<div class="col-12 col-md-6 mb-5 mt-5 mb-md-0 mt-md-0">
-					<div class="client-opinion">
-						<div class="d-none d-sm-block client-image my-auto">
-							<img src="inc/assets/images/benaicha.jpg" class="d-block img-fluid">
-						</div>
-						<div class="d-block d-sm-none client-image-low my-auto">
-							<img src="inc/assets/images/benaicha.jpg" class="d-block img-fluid">
-						</div>
-						<div class="client-info">
-							<h5 class="text-center client-name">Mohamed Amine Benaicha</h5>
-							<p class="text-center client-domain">Design & wellness<br>Owner</p>
-							<p class="paragraph-quote">
-								“I simply love the SimplyBook.me online booking system! I run a small wellness clinic and the SimplyBook.me system saves me time and has streamlined my bookings. My clients really appreciate the convenience of seeing my calendar and booking easy to use and looks professional. I trialled a few different online booking systems but none were as impressive as SimplyBook.me.”
-							</p>
-						</div>
-						<div class="client-agency">
-							<img src="" class="d-block img-fluid">
-						</div>
-					</div>
-				</div>
+   
+	<section class="mt-5 mb-5 d-none d-lg-block" id="testimonial">
+		<div class="container">
+			<div class="testimonial">
 
-				<div class="col-12 col-md-6 mb-5 mt-5 mb-md-0 mt-md-0">
-					<div class="client-opinion">
-						<div class="d-none d-sm-block client-image my-auto">
-							<img src="inc/assets/images/amiri.jpg" class="d-block img-fluid">
-						</div>
-						<div class="d-block d-sm-none client-image-low my-auto">
-							<img src="inc/assets/images/amiri.jpg" class="d-block img-fluid">
-						</div>
-						<div class="client-info">
-							<h5 class="text-center client-name">Mohamed Amiri</h5>
-							<p class="text-center client-domain">COO, Mandel Dermatology. New York’s premiere medical, cosmetic, and laser dermatology practice.</p>
-							<p class="paragraph-quote">
-								“The fact that SimplyBook.me was HIPAA compliant—which is an absolute must-have as a medical practice—as well as reasonably priced, easy to use, infinitely customizable, had a feature for seemingly every need, and was easy to integrate into our website was what sold us on SimplyBook.me,” states Jared.”
-							</p>
-						</div>
-						<div class="client-agency">
-							<img src="" class="d-block img-fluid">
+				<div class="testimonial-box">
+					<div class="testimonial-caroussel">
+						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						  	<ol class="carousel-indicators">
+						   	 	<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+							    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+							    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						  	</ol>
+						  	<div class="carousel-inner">
+							    <div class="carousel-item active">
+							      	<div class="client-opinion">
+										<div class="d-none d-sm-block testimonial-client-image my-auto">
+											<img src="benaicha.jpg" class="d-block img-fluid">
+										</div>
+										<div class="d-block d-sm-none client-image-low my-auto">
+											<img src="benaicha.jpg" class="d-block img-fluid">
+										</div>
+										<div class="client-info">
+											<p class="testimonial-paragraph-quote text-center">
+												I simply love the SimplyBook.me online booking system! I run a small wellness clinic and the SimplyBook.me system saves me time and has streamlined my bookings.
+											</p>
+											<h5 class="text-center testimonial-client-name">Mohamed Amine Benaicha</h5>
+										</div>
+										<div class="client-agency">
+											<img src="" class="d-block img-fluid">
+										</div>
+									</div>
+							    </div>
+						 	</div>
+							  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Next</span>
+							  </a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</section>
-
+ 
 
 	<section class="social-media">
 		
@@ -559,85 +614,102 @@
 	</div>
 
 
-	<footer class="mt-5">
-	    <div class="footer-container px-4 px-lg-3">
-		    <div class="footer-menu">
-		        <div>
-		            <figure>
-		                <a href=""><img src="https://storage.googleapis.com/setmore-website/v2/images/logo/logo-white.svg"/></a>
-		            </figure>
-		            <div class="reseaux">
-		                <p>Réseaux sociaux</p>
-		            </div>
-		            <ul class="social-links">
-		            <li>
-		            <a href="" target="_blank">
-		                <svg width="19" height="18" viewBox="0 0 19 18" >
-		                <path fill="white"
-		                    d="M18.11 9.055C18.11 4.053 14.057 0 9.055 0S0 4.053 0 9.055C0 13.575 3.311 17.32 7.64 18v-6.328h-2.3V9.055h2.3V7.06c0-2.27 1.35-3.523 3.42-3.523.99 0 2.027.177 2.027.177V5.94h-1.142c-1.125 0-1.475.698-1.475 1.414v1.7h2.51l-.4 2.617h-2.11V18c4.328-.68 7.64-4.426 7.64-8.945z"
-		                    opacity=".85"
-		                /></svg>
-		            </a>
-		            </li>
-		            <li>
-		            <a href="" target="_blank">
-		                <svg width="19" height="20" viewBox="0 0 19 20">
-		                <path fill="white"
-		                    d="M14.422 3.626c.648 0 1.175.555 1.175 1.238 0 .682-.527 1.238-1.175 1.238-.649 0-1.176-.556-1.176-1.238 0-.683.527-1.238 1.176-1.238zm-4.924 9.536c-1.658 0-3.003-1.416-3.003-3.162S7.84 6.838 9.498 6.838c1.659 0 3.003 1.416 3.003 3.162s-1.344 3.162-3.003 3.162zm0-8.334c-2.71 0-4.913 2.319-4.913 5.172 0 2.853 2.203 5.172 4.913 5.172 2.71 0 4.913-2.319 4.913-5.172 0-2.853-2.203-5.172-4.913-5.172zm7.589 9.212c0 2.178-1.68 3.945-3.748 3.945H5.661c-2.069 0-3.748-1.767-3.748-3.945V5.956c0-2.177 1.68-3.945 3.748-3.945h7.678c2.069 0 3.748 1.768 3.748 3.945v8.084zM13.339 0H5.661C2.537 0 0 2.672 0 5.956v8.084C0 17.325 2.537 20 5.661 20h7.678C16.459 20 19 17.328 19 14.04V5.956C18.997 2.672 16.46 0 13.339 0z"
-		                    opacity=".85"
-		                /></svg>
-		            </a>
-		            </li>
-		            <li>
-		            <a href="" target="_blank">
-		                <svg width="19" height="14" viewBox="0 0 19 14">
-		                <path fill="white"
-		                    d="M16.836 6.24c1.056-.085 1.795-.622 2.058-1.328-.395.255-1.583.537-2.243.255-.026-.17-.079-.31-.105-.452-.502-1.976-2.217-3.557-4.037-3.388.158-.057.29-.113.448-.17.211-.084 1.372-.282 1.187-.705-.158-.395-1.583.282-1.847.367.37-.141.95-.396 1.03-.819a2.708 2.708 0 0 0-1.478.763c.158-.17.264-.368.29-.594-1.451.96-2.296 2.965-2.982 4.885-.528-.565-1.003-.988-1.451-1.243-1.188-.677-2.64-1.411-4.882-2.286-.08.79.37 1.863 1.636 2.569-.264-.028-.766.056-1.161.14.158.905.686 1.667 2.137 2.034-.66.056-1.003.197-1.293.536.29.621 1.03 1.383 2.349 1.214-1.452.678-.607 1.92.58 1.722C5.014 12 1.821 11.83 0 9.966c4.776 6.974 15.174 4.122 16.73-2.597 1.162 0 1.848-.424 2.27-.904-.66.113-1.636 0-2.164-.226"
-		                    opacity=".85"
-		                /></svg>
-		            </a>
-		            </li>
-		            <li>
-		            <a href="" target="_blank">
-		                <svg width="18" height="14" viewBox="0 0 18 14">
-		                <path fill="white"
-		                    d="M6.677 10.118V3.475L12.4 6.807l-5.723 3.31M17.69 2.253C17.47 1.185 16.687.397 15.744.279 13.511 0 11.252-.002 9.003 0c-2.25 0-4.509 0-6.741.278C1.32.396.538 1.184.317 2.252.004 3.773 0 5.434 0 7c0 1.566 0 3.226.314 4.747.22 1.068 1.002 1.857 1.945 1.974 2.232.279 4.491.28 6.74.279 2.25.001 4.509 0 6.74-.279.943-.117 1.726-.905 1.946-1.974C18 10.227 18 8.567 18 7c0-1.566.003-3.227-.311-4.748"
-		                    opacity=".85"
-		                />
-		                </svg>
-		            </a>
-		            </li>
-		        </ul>
-		        </div>
-		        <nav>
-		        <ul>
-		            <li><a href="">Publications</a></li>
-		            <li><a href="">A propos de nous</a></li>
-		            <li><a href="">Contactez-nous</a></li>
-		        </ul>
-		        <ul>
-		            <li><a href="">Support</a></li>
-		            <li><a href="">Termes et conditions</a></li>
-		        </ul>
-		        </nav>
-		    </div>
-		    <div class="footer-middle">
-		        <div class="clients-count">
-		            <i class="fas fa-user-tie fa-2x"></i>
-		            <p class="euclid-font"><span>396</span> clients inscrits</p>
-		        </div>
-		        <div class="apropos">
-		            <p>
-		                Systeme de prise de rendez-vous en ligne sécurisé et conçu pour une utilisation simple et comfortable pour nos clients
-		            </p>
-		        </div>
-		    </div>
-		    <div class="footer-end">
-		        <span>&copy; Setmore Appointments</span>
-		        <span>|</span>
-		        <span> Tous droits réservés 2021.</span>
-		    </div>
-	    </div>
+	<!-- Our ooter -->
+    <footer id="main-footer">
+    	<div class="container-md mx-lg-5 px-md-4">
+    		<div class="row pt-5">
+    			<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+    				<ul class="footer-list">
+    					<li class="footer-list-item footer-logo-image mb-3">
+    						<img src="inc/inc_Front/images/logo-footer.png" class="d-block img-fluid">
+    					</li>
+    					<li class="footer-list-item mb-3">
+    						<p>
+    							Ipsum dolor sit amet, consecterelit, sed do eiusmod tempor incididunt.Ipsum dolor sit amet, consecterelit, sed do eiusmod tempor incididunt.
+    						</p>
+    					</li>
+    					<li class="footer-list-item mb-3">
+    						<i class="fas fa-map mr-2"></i>
+    						Agadir cite eddakhla
+    					</li>
+    					<li class="footer-list-item mb-3">
+    						<i class="fas fa-phone-alt mr-2"></i>
+    						+2126-45367678
+    					</li>
+    					<li class="footer-list-item mb-3">
+    						<i class="fas fa-envelope mr-2"></i>
+    						agency@contact.com
+    					</li>
+    				</ul>
+    			</div>
+    			<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+    				<ul class="footer-list">
+    					<li class="footer-list-item footer-list-title mb-4 pb-2 ml-3">
+    						Departement
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">Notre agence</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">a propos</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">about us</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">contactez nous</a>
+    					</li>
+    				</ul>
+    			</div>
+
+    			<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+    				<ul class="footer-list">
+    					<li class="footer-list-item footer-list-title mb-4 pb-2 ml-3">
+    						Quick links
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">Notre agence</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">a propos</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">about us</a>
+    					</li>
+    					<li class="footer-list-item footer-list-item-hover mb-3">
+    						<i class="fas fa-angle-double-right footer-icone"></i>
+    						<a href="#" class="d-inline">contactez nous</a>
+    					</li>
+    				</ul>
+    			</div>
+
+    			<div class="col-12 col-sm-6 col-md-4 col-lg-3 px-5 px-md-1 mb-4">
+    				<div class="work-box px-3 py-1">
+    					<ul class="work-list px-2 mb-0">
+    						<li class="work-list-item py-4">
+    							Lundi - Vendredi
+    							<span>09:00 AM - 19:00 PM</span>
+    						</li>
+    						<li class="work-list-item py-4">
+    							Samedi
+    							<span>09:00 AM - 13:00 PM</span>
+    						</li>
+    						<li class="work-list-item py-4">
+    							Dimanche
+    							<span>Seulement les cas urgents</span>
+    						</li>
+    					</ul>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     </footer>
 	
 
@@ -660,6 +732,20 @@
 		})
 	</script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery Cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Bootstrap js F-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Caroussel Js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+	<!-- Main Js -->
+	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
 	
  
 </body>

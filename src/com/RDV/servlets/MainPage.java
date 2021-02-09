@@ -22,6 +22,7 @@ import com.RDV.beans.Client;
 import com.RDV.beans.Publication;
 import com.RDV.beans.Reservation;
 import com.RDV.metier.ValidationReservation;
+import com.RDV.util.Mailer;
 
 /**
  * Servlet implementation class MainPage
@@ -190,6 +191,19 @@ public class MainPage extends HttpServlet {
         ValidationReservation validation = new ValidationReservation();
 
         Reservation reservation = validation.takeReservation(request,"ignorée");
+        
+        response.setContentType("text/html");  
+        
+        String cin = reservation.getCinClient();
+        String dateReservation = reservation.getDateReservation();
+        String heureReservation = reservation.getHeureReservation();
+        String statut = reservation.getStatutReservation();
+        String to="mohamadelattar99@gmail.com";  
+        String subject="Nouvelle reservation";  
+        String msg="Vous devez consultez votre dashboard pour confirmer cette réservation"+"\n"+" Cin :"+cin+"\n"+"Date de réservation : "+dateReservation+"\n"+"Heure de réservation : "+heureReservation+"\n"+"Statut : "+statut; 
+              
+        Mailer.send(to, subject, msg);  
+ 
 
         if ( validation.getErreurs().isEmpty() ) {
         	System.out.println("No Errors");
