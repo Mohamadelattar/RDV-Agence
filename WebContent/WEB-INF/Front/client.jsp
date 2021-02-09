@@ -21,6 +21,7 @@
 
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
+	<a href="?action=effectuerReservation" class="d-block">test</a>
 
 	<section class="profil mt-5">
 	<form method="post">
