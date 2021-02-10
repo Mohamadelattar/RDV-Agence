@@ -15,6 +15,15 @@
 	
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
+	
+	<!-- Publication banner -->
+    <section class="py-5 mb-5" id="publication-banner">
+        <div class="container py-5 my-5">
+            <h1 class="text-left py-auto">
+                article de blog
+            </h1>
+        </div>
+    </section>
 
 	<!-- Quiz Section -->
     <section class="mt-4">
@@ -195,7 +204,7 @@
 
 
     <!-- Comment Section -->
-    <section id="comment" class="">
+    <section id="comment" class="mb-5">
         <div class="container mx-auto">
             <div class="col-12 col-md-8 p-0">
                 <div class="picks mt-2">
@@ -276,7 +285,7 @@
 						      </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-signup mb-2">Poster un commentaire</button>
+                        <button type="submit" class="btn btn-primary btn-signup mb-2 py-3">Poster un commentaire</button>
                     </form>
                 </div>
             </div>

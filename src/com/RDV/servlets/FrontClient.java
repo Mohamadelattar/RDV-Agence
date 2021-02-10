@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,9 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.internal.build.AllowSysOut;
 
 import com.RDV.Dao.ClientDao;
+import com.RDV.Dao.ReservationDAO;
 import com.RDV.beans.Client;
+import com.RDV.beans.Reservation;
 import com.RDV.metier.FormulaireClient;
 
 @MultipartConfig
@@ -29,10 +31,14 @@ public class FrontClient extends HttpServlet {
     private static final String VUE_1            = "/WEB-INF/Front/client.jsp";
     private static final String VUE_2            = "/WEB-INF/Front/modifierPhotoProfil.jsp";
     private static final String FORMULAIRE       = "formulaire";
+    public static final String ATT_CLIENT = "client";
+    public static final String CLIENT_RESERVATION = "clientReservations";
+    
     private static final String CLIENT          = "client";
     private static final String CLIENTS         = "clients";
 
     private ClientDao          clientDao;
+    private ReservationDAO 	   reservationDao;
 
     public FrontClient() {
         super();
@@ -40,7 +46,9 @@ public class FrontClient extends HttpServlet {
     }
 
     public void init() {
-        clientDao = new ClientDao(null);
+        clientDao = new ClientDao(Client.class);
+    	reservationDao = new ReservationDAO(Reservation.class);
+        
     }
 
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
@@ -61,15 +69,28 @@ public class FrontClient extends HttpServlet {
             } catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
         } else {
             switch ( action ) {
             case "modifier":
-                listClient( request, response, VUE_2 );
+                try {
+					listClient( request, response, VUE_1 );
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                 break;
             case "modifierPhotoProfil":
-                listClient( request, response, VUE_2 );
+                try {
+					listClient( request, response, VUE_2 );
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                 break;
             default:
                 try {
@@ -81,6 +102,9 @@ public class FrontClient extends HttpServlet {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -167,22 +191,39 @@ public class FrontClient extends HttpServlet {
     }
 
     private void listClients( HttpServletRequest request, HttpServletResponse response )
-            throws ServletException, IOException, ParseException {
-        ArrayList<Client> listClient = clientDao.getAllClient();
-		
-		request.setAttribute( CLIENTS , listClient);
-		
+            throws Exception {
+    	List<Reservation> clientReservations = getReservationsByClient(request);
+    	request.setAttribute(CLIENT_RESERVATION, clientReservations);
+    	
 		RequestDispatcher dispatcher = request.getRequestDispatcher(VUE);
 		
 		dispatcher.forward(request, response);
     }
     private void listClient( HttpServletRequest request, HttpServletResponse response, String pageJsp )
-            throws ServletException, IOException {
+            throws Exception {
         int id = Integer.parseInt( request.getParameter( "id" ) );
         Client client = clientDao.getClient( id );
-
+        
         request.setAttribute( CLIENT, client );
 
         this.getServletContext().getRequestDispatcher( pageJsp ).forward( request, response );
     }
+    
+    private List<Reservation> getReservationsByClient( HttpServletRequest request)
+            throws Exception {
+    	HttpSession session = request.getSession();
+    	Client client = null;
+    	if( session != null) {
+    		client = (Client)session.getAttribute(ATT_CLIENT);
+    		if(client == null) {
+    			return null;
+    		}else {
+    			int id = client.getId();
+        		List<Reservation> clientReservations = reservationDao.getReservationsByIdClient(id,"confirmée");
+        		return clientReservations;
+    		}
+    	}else {
+    		return null;
+    	}
+	}
 }

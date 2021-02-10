@@ -1,4 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!-- Loading animation -->
+	<div class="se-pre-con"></div>
+	
 <!-- Visible on high sizes -->
 	<header class="d-none d-md-block">
 		<div class="container">
@@ -19,7 +23,7 @@
 							</a>
 						</li>
 						<li class="">
-                                <a href="" data-toggle="modal" data-target="#connexionModal"  class="register-low">
+                                <a href="" data-toggle="modal" data-target="#connexionModal"  class="register-low" id="connexionButton">
                                     <i class="fas fa-arrow-right"></i>
                                     se connecter
                                 </a>
@@ -119,7 +123,7 @@
                     <c:if test="${sessionScope.client == null}">
 					<div class="d-flex justify-content-around mt-3">
 						<div class="">
-							<a href="#" data-toggle="modal" data-target="#connexionModal"   class="register-low">
+							<a href="#" data-toggle="modal" data-target="#connexionModal"   class="register-low" id="connexionButton">
 								<i class="fas fa-arrow-right"></i>
 								se connecter
 							</a>

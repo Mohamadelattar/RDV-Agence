@@ -286,7 +286,7 @@ section:hover .owl-next {
 	letter-spacing: 1px !important;
 }
 .line-main-title{
-	font-size: 70px !important;
+	font-size: 70px;
 	font-weight: 700 !important;
 	color: #fff !important;
 	animation-delay: 1s !important;
@@ -324,4 +324,44 @@ section:hover .owl-next {
 }
 .line-rdv:hover,.line-connect:hover{
 	text-decoration: none;
+}
+
+
+/* On prend soin de vous */
+
+#prend-soin-section{
+	background-color: #112554;
+	position: relative;
+}
+.box-wrap{
+	position: relative;
+}
+.box,.box-low{
+	position: absolute;	
+	top: 45%;
+	left: 10%;
+	background-color: #fff;
+	box-shadow: 0px 15px 40px 0px rgba(13, 29, 13, 0.1);
+	border-radius: 10px;
+}
+.box-low{
+	top: 30%;
+	left: 0%;
+}
+.line-main-title-box{
+	font-size: 50px;
+	font-weight: 700 !important;
+	color: #fff !important;
+	animation-delay: 1s !important;
+}
+.box-info h4{
+    position: relative;
+    font-size: 34px;
+    font-weight: 700;
+    color: #ab1c6e;
+}
+.box-info span{
+	font-size: 14px;
+	font-weight: 700;
+	color: #222222;
 }

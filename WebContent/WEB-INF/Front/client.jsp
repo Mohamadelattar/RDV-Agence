@@ -15,9 +15,9 @@
 	<c:import url="/inc/inc_Front/header.jsp" />
 
 
-	<section class="profil mt-5 mb-5">
+	<section class="profil">
 		<!-- Profil Client -->
-		<div class="container-md px-4 px-md-5 mx-md-5 ">
+		<div class="container-md px-4 px-md-5 mx-md-5 py-5">
 			<div class="row">
 				<div class="col-12 col-lg-4 mb-4">
 					<div class="profil-body px-4 pt-4">
@@ -156,38 +156,42 @@
 							</form>
 						</div>
 						<div class="menu-option menu-reservation d-none">
-							<div class="pl-5 pt-5 ">
-								<h4>
-									<i class="far fa-frown"></i>
-									Vous n'avez effectuer aucune reservation !
-								</h4>	
-								<div class="d-block text-center mt-5">
-									<a href="index?action=effectuerReservation" class="btn-profil-reservation">
-									Prendre un RDV
-								</a>
+						<c:choose>
+							<c:when test="${empty clientReservations}" >
+								<div class="pl-5 pt-5 ">
+									<h4>
+										<i class="far fa-frown"></i>
+										Vous n'avez effectuer aucune reservation !
+									</h4>	
+									<div class="d-block text-center mt-5 mb-4">
+										<a href="index?action=effectuerReservation" class="btn-profil-reservation">
+										Prendre un RDV
+									</a>
 								</div>
-							</div>
+							</c:when>
+							<c:otherwise>
+								<div class="pl-5 pt-5">
+								<c:forEach  items="${clientReservations }" var="clientReservation" >
+									<div class="client-reservations mx-auto d-flex justify-content-around mb-3">
+										<i class="far fa-calendar mr-3 d-block"></i>
+										<span class="mr-3 d-block"><c:out value="${clientReservation.dateReservation}" /></span>
+										<span class="mr-3 d-block"><c:out value="${clientReservation.heureReservation}" /></span>
+									</div>
+								</c:forEach >
+								</div>
+							</c:otherwise>
+						</c:choose>	
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 
 
 
-	<!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
-
-    <!-- Jquery Cdn -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<!-- Bootstrap js F-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<!-- Main Js -->
-	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
-	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>
-</body>
+	<!-- Include the footer -->
+	<c:import url="/inc/inc_Front/footer.jsp" />
+	
 </body>
 </html>
