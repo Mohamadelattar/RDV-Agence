@@ -181,9 +181,6 @@
 				        	<span class="d-block float-left mb-3" style="color: #201919; font-weight: bold;">Votre Avis sur notre service</span>
 				        	<div class="form-group">
 				        	<div class="input-group mb-4 pr-2">
-                                <div class="input-group-prepend">
-                                     <span class="input-group-text">Avis:</span>
-                                </div>
                                 <textarea name="contenu" rows="5" class="form-control" aria-label="With textarea"></textarea>
                             </div>
                             <c:if test="${!empty formulaire.erreurs['contenu']}">
