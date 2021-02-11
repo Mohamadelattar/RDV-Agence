@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -320,8 +321,8 @@
 			</section>
 
 
-   
-	<section class="mt-5 mb-5 d-none d-lg-block" id="testimonial">
+    
+	   <section class="mt-5 mb-5 d-none d-lg-block" id="testimonial">
 		<div class="container">
 			<div class="testimonial">
 
@@ -329,30 +330,32 @@
 					<div class="testimonial-caroussel">
 						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						  	<ol class="carousel-indicators">
-						   	 	<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						  	</ol>
 						  	<div class="carousel-inner">
-							    <div class="carousel-item active">
+						  	<c:forEach var="commentaire" items="${commentaires}">
+                            <c:forEach var="client" items="${clients}">
+                            <c:if test="${commentaire.idClient==client.id}">
+                                   <div class="carousel-item">
 							      	<div class="client-opinion">
 										<div class="d-none d-sm-block testimonial-client-image my-auto">
-											<img src="benaicha.jpg" class="d-block img-fluid">
+											<img src="inc/inc_Front/images/<c:out value="${client.photoProfile}"/>" class="d-block img-fluid">
 										</div>
 										<div class="d-block d-sm-none client-image-low my-auto">
-											<img src="benaicha.jpg" class="d-block img-fluid">
+											<img src="inc/inc_Front/images/<c:out value="${client.photoProfile}"/>" class="d-block img-fluid">
 										</div>
 										<div class="client-info">
-											<p class="testimonial-paragraph-quote text-center">
-												I simply love the SimplyBook.me online booking system! I run a small wellness clinic and the SimplyBook.me system saves me time and has streamlined my bookings.
+											<p class="testimonial-paragraph-quote text-center"><c:out value="${commentaire.contenu}" />
 											</p>
-											<h5 class="text-center testimonial-client-name">Mohamed Amine Benaicha</h5>
+											<h5 class="text-center testimonial-client-name"><c:out value="${client.nom}" /> <c:out value="${client.prenom}" /></h5>
 										</div>
 										<div class="client-agency">
 											<img src="" class="d-block img-fluid">
 										</div>
 									</div>
 							    </div>
+							    </c:if>
+                            </c:forEach>
+                            </c:forEach>
 						 	</div>
 							  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -368,7 +371,7 @@
 			</div>
 		</div>
 	</section>
- 
+	
 
 	<section class="social-media">
 		

@@ -17,8 +17,10 @@ import javax.servlet.http.HttpSession;
 
 import com.RDV.Dao.ClientDao;
 import com.RDV.Dao.PublicationDao;
+import com.RDV.Dao.CommentaireDao;
 import com.RDV.Dao.ReservationDAO;
 import com.RDV.beans.Client;
+import com.RDV.beans.Commentaires;
 import com.RDV.beans.Publication;
 import com.RDV.beans.Reservation;
 import com.RDV.metier.ValidationReservation;
@@ -33,6 +35,8 @@ public class MainPage extends HttpServlet {
     private static final String VUE_MAIN="/WEB-INF/Front/mainpage.jsp";
     private PublicationDao publicationDao;
     private static final String ATT_PUBLICATIONS = "publications";
+    private static final String ATT_COMMENTAIRES = "commentaires";
+    private static final String ATT_CLIENTS = "clients";
     
     
     private static final String VUE_LOGIN = "/WEB-INF/Front/mainpage.jsp";
@@ -57,6 +61,7 @@ public class MainPage extends HttpServlet {
     
     private ClientDao          clientDao;
     private ReservationDAO 	   reservationDao; 
+    private CommentaireDao     commentaireDao;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -65,6 +70,7 @@ public class MainPage extends HttpServlet {
     	publicationDao = new PublicationDao(Publication.class);
     	clientDao = new ClientDao(Client.class);
     	reservationDao = new ReservationDAO(Reservation.class);
+    	commentaireDao = new CommentaireDao();
     }
     public MainPage() {
         super();
@@ -87,6 +93,11 @@ public class MainPage extends HttpServlet {
 				// pourquoi /
 				ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.publications(1);
 				session.setAttribute(ATT_PUBLICATIONS, publications);
+				ArrayList<Commentaires> commentaires = (ArrayList<Commentaires>) commentaireDao.getAllCommentaires();
+				request.setAttribute(ATT_COMMENTAIRES, commentaires);
+				ArrayList<Client> clients = clientDao.getAllClient();
+				request.setAttribute( ATT_CLIENTS , clients);
+				
 			this.getServletContext().getRequestDispatcher( VUE_MAIN ).forward( request, response );
 			}
 			if("logout".equalsIgnoreCase(op)) {
@@ -145,9 +156,7 @@ public class MainPage extends HttpServlet {
         String password = request.getParameter(CHAMP_PASSWORD);
         
         Client client = clientDao.validate(email, password);
-        System.out.println("Client 1");
         if (client != null) {
-        	System.out.println("Client 2");
         	session.setAttribute(ATT_CLIENT, client);
         	session.setAttribute("idClient", client.getId());
         	 

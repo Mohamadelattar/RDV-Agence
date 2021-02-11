@@ -15,6 +15,14 @@ public class Commentaires {
 	@Column(name="id")
 	protected int id;
 	
+	public int getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
+	}
+
 	@Column(name="titre")
 	protected String titre;
 	
@@ -23,6 +31,8 @@ public class Commentaires {
 	
 	@Column(name="cin")
 	protected String cin;
+	@Column( name = "idClient" )
+	private int	idClient;
 	
 	public Commentaires() {
 	}
@@ -65,6 +75,4 @@ public class Commentaires {
 		this.contenu = contenu;
 		this.cin = cin;
 	}
-
-	
 	}

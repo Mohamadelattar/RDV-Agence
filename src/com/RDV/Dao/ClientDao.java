@@ -152,14 +152,10 @@ public class ClientDao extends DaoFactory<Object>{
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            System.out.println("Ana hnaaaa Client taniiiii 1");
             password = this.crypterMotDePasse(password);
-            System.out.println(password);
             client =  (Client) session.createQuery("FROM Client C WHERE C.email = :email").setParameter("email", email).uniqueResult();
-            System.out.println("Ana hnaaaa Client taniiiii 2");
             
             if (client != null && client.getPassword().equals(password)) {
-            	 System.out.println("Ana hnaaaa Client taniiiii 3");
                 return client;
             }
             // commit transaction
@@ -172,23 +168,4 @@ public class ClientDao extends DaoFactory<Object>{
         }
         return null;
     }
-	public Client getClientE(String email) {
-
-		Transaction transaction = null;
-        Client client = null;
-        try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
-            // start a transaction
-            transaction = session.beginTransaction();
-            // get an user object
-            client = session.get( Client.class, email );
-            // commit transaction
-            transaction.commit();
-        } catch ( Exception e ) {
-            if ( transaction != null ) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        return client;
-}
 }

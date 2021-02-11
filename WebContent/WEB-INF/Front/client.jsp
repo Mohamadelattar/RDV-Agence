@@ -85,6 +85,9 @@
 								<li class="list-inline-item non-active-option" id="option-2">
 									Vos Réservations
 								</li>
+								<li class="list-inline-item non-active-option" id="option-3">
+									Votre Avis
+								</li>
 							</ul>
 						</div>
 						<div class="menu-option info-update-body px-4 pt-4 d-block">
@@ -166,6 +169,29 @@
 									Prendre un RDV
 								</a>
 								</div>
+							</div>
+						</div>
+						<div class="menu-option  d-none">
+							<div class="pl-5 pt-5 ">
+						    <form method="post" action="post-client" class="mb-4">
+							
+				       		<!-- Un champ hidden pour savoir le type de l'action -->
+				        	<input type="hidden" name="action" value="ajouterCommentaire">
+				        	
+				        	<span class="d-block float-left mb-3" style="color: #201919; font-weight: bold;">Votre Avis sur notre service</span>
+				        	<div class="form-group">
+				        	<div class="input-group mb-4 pr-2">
+                                <div class="input-group-prepend">
+                                     <span class="input-group-text">Avis:</span>
+                                </div>
+                                <textarea name="contenu" rows="5" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <c:if test="${!empty formulaire.erreurs['contenu']}">
+                                        <p class="alert alert-danger mb-2 pr-2 right"><c:out value="${formulaire.erreurs['contenu']}"/><p>
+                                        </c:if>
+                            </div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
 							</div>
 						</div>
 					</div>

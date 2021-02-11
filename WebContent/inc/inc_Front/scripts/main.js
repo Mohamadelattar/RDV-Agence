@@ -67,11 +67,21 @@ $(document).ready(function() {
   $(".non-active-option").click(function () {
       if( $(this).attr('id') == 'option-1'){
         $('.menu-option').eq(1).removeClass("d-block");
+        $('.menu-option').eq(2).removeClass("d-block");
         $('.menu-option').eq(0).addClass("d-block");
-      }else{
+      }
+      else if( $(this).attr('id') == 'option-2') {
         $('.menu-option').eq(0).removeClass("d-block");
+        $('.menu-option').eq(2).removeClass("d-block");
         $('.menu-option').eq(0).addClass("d-none");
+        $('.menu-option').eq(2).addClass("d-none");
         $('.menu-option').eq(1).addClass("d-block");
+      } else {
+           $('.menu-option').eq(0).removeClass("d-block");
+        $('.menu-option').eq(1).removeClass("d-block");
+        $('.menu-option').eq(0).addClass("d-none");
+        $('.menu-option').eq(1).addClass("d-none");
+        $('.menu-option').eq(2).addClass("d-block");
       }
       $(".non-active-option").removeClass("active-option");
       $(this).addClass("active-option");   
@@ -98,4 +108,14 @@ $('.owl-carousel').owlCarousel({
             items:1
         }
     }
+});
+
+$(document).ready(function(){  
+  for(var i=0 ; i<3 ; i++) {
+    $('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators')
+
+  }
+  $('.carousel-item').first().addClass('active');
+  $('.carousel-indicators > li').first().addClass('active');
+  $('#carouselExampleIndicators').carousel();
 });

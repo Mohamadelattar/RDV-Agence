@@ -13,6 +13,23 @@ import com.RDV.util.HibernateUtil;
 
 public class CommentaireDao {
 	
+
+	public void saveCommentaire( Commentaires commentaire ) {
+        Transaction transaction = null;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession() ) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // save the student obje
+            session.save( commentaire );
+            // commit transaction
+            transaction.commit();
+        } catch ( Exception e ) {
+            if ( transaction != null ) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
 	public void deleteCommentaires(int id) {
 
 		Transaction transaction = null;
