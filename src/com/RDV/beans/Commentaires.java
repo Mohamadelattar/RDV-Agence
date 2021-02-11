@@ -15,14 +15,23 @@ public class Commentaires {
 	@Column(name="id")
 	protected int id;
 	
+	public int getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
+	}
+
 	@Column(name="titre")
 	protected String titre;
 	
 	@Column(name="contenu")
 	protected String contenu;
 	
-	@Column(name="cin")
-	protected String cin;
+ 
+	@Column( name = "idClient" )
+	private int	idClient;
 	
 	public Commentaires() {
 	}
@@ -51,20 +60,12 @@ public class Commentaires {
 		this.contenu = contenu;
 	}
 
-	public String getCin() {
-		return cin;
-	}
+ 
 
-	public void setCin(String cin) {
-		this.cin = cin;
-	}
-
-	public Commentaires(String titre, String contenu, String cin) {
+	public Commentaires(String titre, String contenu) {
 		super();
 		this.titre = titre;
 		this.contenu = contenu;
-		this.cin = cin;
+		 
 	}
-
-	
 	}

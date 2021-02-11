@@ -12,7 +12,17 @@
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/portfolio.css">
 </head>
 <body>
+	<!-- Include the Header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
+	
+	<!-- Publication banner -->
+    <section class="py-5 mb-5" id="publication-banner">
+        <div class="container py-5 my-5">
+            <h1 class="text-left py-auto">
+                Portfolio
+            </h1>
+        </div>
+    </section>
 	<section class="mt-5 mb-5">
 		<div class="container mt-5 m-0 mx-sm-auto">
 			<div class="row">
@@ -93,21 +103,8 @@
 	</section>
 
 
-	<!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
-    <!-- Jquery Cdn -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<!-- Bootstrap js F-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<!-- Main Js -->
-	<script type="text/javascript" src="main.js"></script>
-
-	<script type="text/javascript">
-		
-	</script>
-</body>
+	<!-- Include the footer -->
+	<c:import url="/inc/inc_Front/footer.jsp" />
+	
 </body>
 </html>

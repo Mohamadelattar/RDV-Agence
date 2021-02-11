@@ -4,19 +4,19 @@
 
 @font-face {
     font-family: GilroyExtraBold;
-    src:url("fonts/Gilroy-ExtraBold.otf");
+    src:url("../fonts/Gilroy-ExtraBold.otf");
 }
 @font-face {
     font-family: GilroyLight;
-    src:url("fonts/Gilroy-Light.otf");
+    src:url("../fonts/Gilroy-Light.otf");
 }
 @font-face {
     font-family: GiltroyRegular;
-    src:url("fonts/Gilroy-Regular.ttf");
+    src:url("../fonts/Gilroy-Regular.ttf");
 }
 @font-face {
     font-family: GiltroyBold;
-    src:url("fonts/Gilroy-Bold.ttf");
+    src:url("../fonts/Gilroy-Bold.ttf");
 }
 
 
@@ -693,6 +693,7 @@
     line-height: 1.8;
     font-weight: 500;
     font-size: 1.1rem;
+     
 }
 
 .blog p a {
@@ -767,6 +768,8 @@
 }
 .recent-posts-publications-image img{
 	border-radius: 100%;
+    width: 78px;
+    height: 78px;
 }
 .recent-posts-publications-info h5 a{
 	color: #000;
@@ -1204,4 +1207,85 @@ li{
     line-height: 0.6;
 }
 
+/* Loading Bar animation */
+no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/Preloader_11.gif) center no-repeat #fff;
+}
+
+/* The main Titles */
+.title-para{
+	font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ab1c6e;
+}
+.main-title h1{
+	font-family: 'GiltroyBold','sans-serif';
+	font-size: 40px;
+	font-weight: 700;
+	color: #222;
+	line-height: 50px;
+}
+.main-title h1 span{
+	color: #8467de;
+}
+
+/* Call Us Section */
+#call-us-section{
+	background: url(../images/background-image.jpg);
+}
+.call-us-wrapper{
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.89); 
+}
+#call-us-section p{
+	font-family: 'GiltroyRegular','sans-serif';
+	font-weight: 400;
+	font-size: 16px;
+	color: #fff;
+}
+#call-us-section p a{
+	text-decoration: underline;
+	color: #34b8c3;
+}
+#call-us-section h1{
+	font-family: 'GiltroyRegular','sans-serif';
+	font-size: 40px;
+	font-weight: 400;
+	color: #fff;
+}
+#call-us-section h1 span{
+	font-family: 'GiltroyBold','sans-serif';
+	font-weight: bold;
+	color: #b82077;
+}
+
+/*Publication banner*/
+#publication-banner{
+	background: url(../images/inner-banner.jpg);
+	background-size: cover; 
+}
+#publication-banner h1{
+	text-transform: capitalize;
+	font-size: 48px;
+	color: #ab1c6e;
+	font-family: "GiltroyBold",sans-serif;
+}
+.pr-2, .px-2 {
+    padding-right: 2.5rem!important;
+}
+.menu-option .mb-2 {
+	line-height: 1;
+}
+.right {
+	right:24px;
+} 
  

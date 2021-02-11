@@ -17,6 +17,14 @@
 	
 	<!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
+	<!-- Publication banner -->
+    <section class="py-5 mb-5" id="publication-banner">
+        <div class="container py-5 my-5">
+            <h1 class="text-left py-auto">
+                Nos Publication
+            </h1>
+        </div>
+    </section>
 	
   <section class="hero-section">
  	 <div class="card-grid">

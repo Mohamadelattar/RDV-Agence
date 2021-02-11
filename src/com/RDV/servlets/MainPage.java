@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
 
 import com.RDV.Dao.ClientDao;
 import com.RDV.Dao.PublicationDao;
+import com.RDV.Dao.CommentaireDao;
 import com.RDV.Dao.ReservationDAO;
 import com.RDV.beans.Client;
 import com.RDV.beans.Publication;
+import com.RDV.beans.Commentaires;
 import com.RDV.beans.Reservation;
 import com.RDV.metier.ValidationReservation;
 import com.RDV.util.Mailer;
@@ -40,8 +42,11 @@ public class MainPage extends HttpServlet {
 	public static final String ATT_MAINPAGE = "index";
     public static final String ATT_FORM   = "form";
     public static final String ATT_SESSION_USER = "sessionClient";
+    private static final String ATT_COMMENTAIRES = "commentaires";
+    private static final String ATT_CLIENTS = "clients";
     private static final String CHAMP_EMAIL     = "email";
     private static final String CHAMP_PASSWORD   = "password";
+    private static final String CLIENT_RESERVATIONS   = "clientReservations";
     private static final String CHAMP_ERREUR ="erreur";
     private static final String VUE_CLIENT              = "/WEB-INF/Front/client.jsp";
     private static final String  CLIENT_RESERVATION              = "/WEB-INF/Front/effectuerReservation.jsp";
@@ -57,6 +62,8 @@ public class MainPage extends HttpServlet {
     
     private ClientDao          clientDao;
     private ReservationDAO 	   reservationDao; 
+    private CommentaireDao     commentaireDao;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -65,6 +72,9 @@ public class MainPage extends HttpServlet {
     	publicationDao = new PublicationDao(Publication.class);
     	clientDao = new ClientDao(Client.class);
     	reservationDao = new ReservationDAO(Reservation.class);
+    	commentaireDao = new CommentaireDao();
+
+    	
     }
     public MainPage() {
         super();
@@ -87,6 +97,10 @@ public class MainPage extends HttpServlet {
 				// pourquoi /
 				ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.publications(1);
 				session.setAttribute(ATT_PUBLICATIONS, publications);
+				ArrayList<Commentaires> commentaires = (ArrayList<Commentaires>) commentaireDao.getAllCommentaires();
+				request.setAttribute(ATT_COMMENTAIRES, commentaires);
+				ArrayList<Client> clients = clientDao.getAllClient();
+				request.setAttribute( ATT_CLIENTS , clients);
 			this.getServletContext().getRequestDispatcher( VUE_MAIN ).forward( request, response );
 			}
 			if("logout".equalsIgnoreCase(op)) {
@@ -99,6 +113,9 @@ public class MainPage extends HttpServlet {
 					try {
 						effectuerReservation(request,response);
 					} catch (ServletException | IOException | ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -164,7 +181,7 @@ public class MainPage extends HttpServlet {
     }
 	
 	private void effectuerReservation( HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException{
+            throws Exception{
 		
 		ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationDao.getReservationWithType("confirmée");
 		
@@ -177,6 +194,9 @@ public class MainPage extends HttpServlet {
         	btnReservation.put("statut","non valable");
         	reservationsBtns.add(btnReservation);
         }
+		
+		List<Reservation> clientReservations = getReservationsByClient(request);
+    	request.setAttribute(CLIENT_RESERVATIONS, clientReservations);
 		
 		request.setAttribute(RESERVATION_BTNS, reservationsBtns);
         request.setAttribute( RESERVATIONS, reservations );
@@ -220,5 +240,23 @@ public class MainPage extends HttpServlet {
 
         this.getServletContext().getRequestDispatcher( CLIENT_RESERVATION ).forward( request, response );
     }
+	
+	private List<Reservation> getReservationsByClient( HttpServletRequest request)
+            throws Exception {
+    	HttpSession session = request.getSession();
+    	Client client = null;
+    	if( session != null) {
+    		client = (Client)session.getAttribute(ATT_CLIENT);
+    		if(client == null) {
+    			return null;
+    		}else {
+    			int id = client.getId();
+        		List<Reservation> clientReservations = reservationDao.getReservationsByIdClient(id,"confirmée");
+        		return clientReservations;
+    		}
+    	}else {
+    		return null;
+    	}
+	}
 
 }

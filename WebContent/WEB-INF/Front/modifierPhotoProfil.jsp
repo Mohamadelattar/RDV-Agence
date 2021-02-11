@@ -10,10 +10,12 @@
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
 </head>
-<body id="profilSection">
+<body>
+
     <!-- Include the header -->
 	<c:import url="/inc/inc_Front/header.jsp" />
-	<section class="profil mt-5 mb-5">
+	
+	<section class="profil py-5">
 		<!-- Profil Client -->
 		<div class="container-md px-4 px-md-5 mx-md-5 ">
 			<div class="row">
@@ -91,7 +93,7 @@
 			        	        <!-- Un champ hidden pour savoir l'id de l'employe -->
 			        	        <input type="hidden" name="id" value="<c:out value="${client.id}"/>">
 			        	
-								<span class="d-block mb-2" style="color: #201919; font-weight: bold;">Photo Profil</span>
+								<span class="d-block mb-3 float-left" style="color: #201919; font-weight: bold;">Photo Profil</span>
 							  	<div class="custom-file mb-4">
 								    <input type="file" class="custom-file-input" name="photoProfil" id="customFile">
 								    <label class="custom-file-label" for="customFile">Choisr une Photo</label>
@@ -106,19 +108,8 @@
 
 
 
-	<!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
-
-    <!-- Jquery Cdn -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<!-- Bootstrap js F-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<!-- Main Js -->
-	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
-	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>
-</body>
+	<!-- Include the footer -->
+	<c:import url="/inc/inc_Front/footer.jsp" />
+	
 </body>
 </html>

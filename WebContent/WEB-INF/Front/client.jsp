@@ -85,6 +85,9 @@
 								<li class="list-inline-item non-active-option" id="option-2">
 									Vos Réservations
 								</li>
+								<li class="list-inline-item non-active-option" id="option-3">
+									Votre Avis
+								</li>
 							</ul>
 						</div>
 						<div class="menu-option info-update-body px-4 pt-4 d-block">
@@ -168,26 +171,37 @@
 								</div>
 							</div>
 						</div>
+						<div class="menu-option  d-none">
+							<div class="pl-5 pt-5 ">
+						    <form method="post" action="post-client" class="mb-4">
+							
+				       		<!-- Un champ hidden pour savoir le type de l'action -->
+				        	<input type="hidden" name="action" value="ajouterCommentaire">
+				        	
+				        	<span class="d-block float-left mb-3" style="color: #201919; font-weight: bold;">Votre Avis sur notre service</span>
+				        	<div class="form-group">
+				        	<div class="input-group mb-4 pr-2">
+                                <div class="input-group-prepend">
+                                     <span class="input-group-text">Avis:</span>
+                                </div>
+                                <textarea name="contenu" rows="5" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <c:if test="${!empty formulaire.erreurs['contenu']}">
+                                        <p class="alert alert-danger mb-2 pr-2 right"><c:out value="${formulaire.erreurs['contenu']}"/><p>
+                                        </c:if>
+                            </div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 	</section>
 
 
-
-	<!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/24349302c9.js" crossorigin="anonymous"></script>
-
-    <!-- Jquery Cdn -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<!-- Bootstrap js F-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<!-- Main Js -->
-	<script type="text/javascript" src="inc/inc_Front/scripts/main.js"></script>
-	<script type="text/javascript" src="inc/inc_Front/scripts/header.js"></script>
-</body>
+	<!-- Include the footer -->
+	<c:import url="/inc/inc_Front/footer.jsp" />
+	
 </body>
 </html>

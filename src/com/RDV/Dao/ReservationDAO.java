@@ -53,4 +53,12 @@ public class ReservationDAO extends DaoFactory{
         return items;
 	}
 	
+	public List<Reservation> getReservationsByIdClient(int id, String statut){
+		// TODO Auto-generated method stub
+		List<Reservation> items = null;
+		
+		items = getAllReservations("FROM Reservation Where idClient='"+id+"' and statut='"+statut+"'");
+        return items;
+	}
+	
 }
