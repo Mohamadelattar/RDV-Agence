@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 05 fév. 2021 à 16:53
--- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 7.4.14
+-- Host: 127.0.0.1
+-- Generation Time: Feb 11, 2021 at 10:11 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `rdvagencee`
+-- Database: `rdv`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `annonce`
+-- Table structure for table `annonce`
 --
 
 CREATE TABLE `annonce` (
@@ -36,7 +36,7 @@ CREATE TABLE `annonce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `annonce`
+-- Dumping data for table `annonce`
 --
 
 INSERT INTO `annonce` (`id`, `contenu`, `idEmploye`, `image`, `titre`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `annonce` (`id`, `contenu`, `idEmploye`, `image`, `titre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `client`
+-- Table structure for table `client`
 --
 
 CREATE TABLE `client` (
@@ -64,7 +64,7 @@ CREATE TABLE `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `client`
+-- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`id`, `cin`, `nom`, `prenom`, `numTele`, `adresse`, `email`, `mot_de_passe`, `date_debut`, `photoProfile`, `ancien_mot_de_passe`) VALUES
@@ -73,21 +73,19 @@ INSERT INTO `client` (`id`, `cin`, `nom`, `prenom`, `numTele`, `adresse`, `email
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
+-- Table structure for table `commentaire`
 --
 
 CREATE TABLE `commentaire` (
   `id` int(11) NOT NULL,
-  `titre` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `contenu` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `idClient` int(11) NOT NULL,
-  `cin` varchar(255) DEFAULT NULL
+  `idClient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `employe`
+-- Table structure for table `employe`
 --
 
 CREATE TABLE `employe` (
@@ -110,7 +108,7 @@ CREATE TABLE `employe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `employe`
+-- Dumping data for table `employe`
 --
 
 INSERT INTO `employe` (`id`, `cin`, `nom`, `prenom`, `ville`, `email`, `mot_de_passe`, `num_telephone`, `date_debut`, `photo_profil`, `ancien_mot_de_passe`, `isAdmin`, `isConge`, `nombre_de_mois`, `statut_payment`, `showPaymentOption`) VALUES
@@ -123,7 +121,7 @@ INSERT INTO `employe` (`id`, `cin`, `nom`, `prenom`, `ville`, `email`, `mot_de_p
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hibernate_sequence`
+-- Table structure for table `hibernate_sequence`
 --
 
 CREATE TABLE `hibernate_sequence` (
@@ -131,7 +129,7 @@ CREATE TABLE `hibernate_sequence` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `hibernate_sequence`
+-- Dumping data for table `hibernate_sequence`
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
@@ -140,7 +138,7 @@ INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `publication`
+-- Table structure for table `publication`
 --
 
 CREATE TABLE `publication` (
@@ -153,7 +151,7 @@ CREATE TABLE `publication` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `publication`
+-- Dumping data for table `publication`
 --
 
 INSERT INTO `publication` (`id`, `titre`, `contenu`, `image`, `date`, `idEmploye`) VALUES
@@ -165,7 +163,7 @@ INSERT INTO `publication` (`id`, `titre`, `contenu`, `image`, `date`, `idEmploye
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservation2`
+-- Table structure for table `reservation2`
 --
 
 CREATE TABLE `reservation2` (
@@ -178,7 +176,7 @@ CREATE TABLE `reservation2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `reservation2`
+-- Dumping data for table `reservation2`
 --
 
 INSERT INTO `reservation2` (`idReservation`, `cin`, `date`, `heure`, `idClient`, `statut`) VALUES
@@ -188,75 +186,94 @@ INSERT INTO `reservation2` (`idReservation`, `cin`, `date`, `heure`, `idClient`,
 (40, 'D78932', '2021-02-05', '09:00', 1, 'ignorée');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `annonce`
+-- Indexes for table `annonce`
 --
 ALTER TABLE `annonce`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idEmploye` (`idEmploye`);
 
 --
--- Index pour la table `employe`
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idClient` (`idClient`);
+
+--
+-- Indexes for table `employe`
 --
 ALTER TABLE `employe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `publication`
+-- Indexes for table `publication`
 --
 ALTER TABLE `publication`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idEmploye` (`idEmploye`);
 
 --
--- Index pour la table `reservation2`
+-- Indexes for table `reservation2`
 --
 ALTER TABLE `reservation2`
   ADD PRIMARY KEY (`idReservation`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `annonce`
+-- AUTO_INCREMENT for table `annonce`
 --
 ALTER TABLE `annonce`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT pour la table `employe`
+-- AUTO_INCREMENT for table `employe`
 --
 ALTER TABLE `employe`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT pour la table `publication`
+-- AUTO_INCREMENT for table `publication`
 --
 ALTER TABLE `publication`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `reservation2`
+-- AUTO_INCREMENT for table `reservation2`
 --
 ALTER TABLE `reservation2`
   MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `annonce`
+-- Constraints for table `annonce`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `EmployeAnnonceContrainte` FOREIGN KEY (`idEmploye`) REFERENCES `employe` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `publication`
+-- Constraints for table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD CONSTRAINT `IdClietComment` FOREIGN KEY (`idClient`) REFERENCES `client` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `publication`
 --
 ALTER TABLE `publication`
   ADD CONSTRAINT `EmployePublicationContrainte` FOREIGN KEY (`idEmploye`) REFERENCES `employe` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
