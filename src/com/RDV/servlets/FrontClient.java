@@ -1,6 +1,7 @@
 package com.RDV.servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -64,14 +65,27 @@ public class FrontClient extends HttpServlet {
         request.setAttribute( "todayDate", todayDate );
         if ( action == null ) {
 
-        	RequestDispatcher dispatcher = request.getRequestDispatcher(VUE);
-    		dispatcher.forward(request, response);
+            try {
+            	listClients( request, response);
+            } catch ( ServletException e ) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch ( IOException e ) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         } else {
-        	switch ( action ) {
+            switch ( action ) {
             case "modifier":
                 try {
-					listClient( request, response, VUE_2 );
+					listClient( request, response, VUE_1 );
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -87,20 +101,24 @@ public class FrontClient extends HttpServlet {
                 break;
             default:
                 try {
-                	RequestDispatcher dispatcher = request.getRequestDispatcher(VUE);
-            		dispatcher.forward(request, response);
+                	listClients( request, response);
                 } catch ( ServletException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 } catch ( IOException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                } catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 break;
             }
         }
-        }
-    
+    }
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
@@ -180,7 +198,15 @@ public class FrontClient extends HttpServlet {
         session.setAttribute( CLIENT, client );
         this.getServletContext().getRequestDispatcher( VUE_1 ).forward( request, response );
     }
-
+    private void listClients( HttpServletRequest request, HttpServletResponse response )
+            throws Exception {
+    	List<Reservation> clientReservations = getReservationsByClient(request);
+    	request.setAttribute(CLIENT_RESERVATION, clientReservations);
+    	
+		RequestDispatcher dispatcher = request.getRequestDispatcher(VUE);
+		
+		dispatcher.forward(request, response);
+    }
  
     private void listClient( HttpServletRequest request, HttpServletResponse response, String pageJsp )
             throws Exception {

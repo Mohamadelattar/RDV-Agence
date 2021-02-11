@@ -718,6 +718,21 @@
 	<c:import url="/inc/inc_Front/footer.jsp" />
 	
 	<!-- Afficher les erruers du formulaire d'inscription -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.publication-entity').hover(
+		      	 function(){ 
+		       	$(this).children('.publication-picture').children('div').addClass('bg-color-hover');
+		       	$(this).children('.publication-picture').children('img').addClass('publication-picture-hover');},‏
+		       	 
+				       	function(){ 
+				       	$(this).children('.publication-picture').children('div').removeClass('bg-color-hover');
+				        $(this).children('.publication-picture').children('img').removeClass('publication-picture-hover');
+				   		}
+					)
+				})
+				</script>
+			
 	
 	<script type="text/javascript">
 		<c:if test="${not empty erreur}">

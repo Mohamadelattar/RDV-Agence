@@ -434,6 +434,12 @@
 	border-radius: 100%;
 	position: relative;
 }
+.profil-image img{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	
+}
 .profil-image-source,.profil-image-doctor{
 	border-radius: 100%;
 }
