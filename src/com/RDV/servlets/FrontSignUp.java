@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +17,11 @@ import com.RDV.metier.FormulaireClient;
 public class FrontSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE_SIGNUP = "/WEB-INF/Front/registration.jsp";
-	private static final String CHAMP_ERREUR ="erreur";
+	//private static final String CHAMP_ERREUR ="erreur";
 	public static final String CLIENT = "client";
     private static final String FORMULAIRE       = "formulaire";
     public static final String ATT_FORM   = "form";
-    private static final String VUE_SUCCES = "/WEB-INF/Front/index.jsp";
+    //private static final String VUE_SUCCES = "/WEB-INF/Front/index.jsp";
 	private static final String VUE_LOGIN = "/WEB-INF/Front/mainpage.jsp";
     private ClientDao          clientDao;
  

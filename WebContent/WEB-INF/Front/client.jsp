@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -15,9 +15,9 @@
 	<c:import url="/inc/inc_Front/header.jsp" />
 
 
-	<section class="profil">
+	<section class="profil py-5">
 		<!-- Profil Client -->
-		<div class="container-md px-4 px-md-5 mx-md-5 py-5">
+		<div class="container-md px-4 px-md-5 mx-md-5 py-5â€">
 			<div class="row">
 				<div class="col-12 col-lg-4 mb-4">
 					<div class="profil-body px-4 pt-4">
@@ -83,7 +83,10 @@
 									Info utilisateur
 								</li>
 								<li class="list-inline-item non-active-option" id="option-2">
-									Vos Réservations
+									Vos RÃ©servations
+								</li>
+								<li class="list-inline-item non-active-option" id="option-3">
+									Votre Avis
 								</li>
 							</ul>
 						</div>
@@ -107,7 +110,7 @@
 								    </div>
                                     <!-- Prenom -->
 								    <div class="form-group col-md-6">
-								        <label for="inputPrenom">Prénom</label>
+								        <label for="inputPrenom">PrÃ©nom</label>
 								        <input type="text" class="form-control" id="inputPrenom" placeholder="votre prenom"  name="prenom" value="<c:out value="${client.prenom}"/>">
 								        <c:if test="${!empty formulaire.erreurs['prenom']}">
                                         <p class="alert alert-danger mb-2 nom form-control"><c:out value="${formulaire.erreurs['prenom']}"/><p>
@@ -156,38 +159,64 @@
 							</form>
 						</div>
 						<div class="menu-option menu-reservation d-none">
-						<c:choose>
-							<c:when test="${empty clientReservations}" >
-								<div class="pl-5 pt-5 ">
-									<h4>
-										<i class="far fa-frown"></i>
-										Vous n'avez effectuer aucune reservation !
-									</h4>	
-									<div class="d-block text-center mt-5 mb-4">
-										<a href="index?action=effectuerReservation" class="btn-profil-reservation">
-										Prendre un RDV
-									</a>
-								</div>
-							</c:when>
-							<c:otherwise>
-								<div class="pl-5 pt-5">
-								<c:forEach  items="${clientReservations }" var="clientReservation" >
-									<div class="client-reservations mx-auto d-flex justify-content-around mb-3">
-										<i class="far fa-calendar mr-3 d-block"></i>
-										<span class="mr-3 d-block"><c:out value="${clientReservation.dateReservation}" /></span>
-										<span class="mr-3 d-block"><c:out value="${clientReservation.heureReservation}" /></span>
+							<c:choose>
+								<c:when test="${empty clientReservations}" >
+									<div class="pl-5 pt-5 ">
+										<h4>
+											<i class="far fa-frown"></i>
+											Vous n'avez effectuer aucune reservation !
+										</h4>	
+										<div class="d-block text-center mt-5 mb-4">
+											<a href="index?action=effectuerReservation" class="btn-profil-reservation">
+											Prendre un RDV
+										</a>
 									</div>
-								</c:forEach >
-								</div>
-							</c:otherwise>
-						</c:choose>	
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="pl-5 pt-5">
+									<c:forEach  items="${clientReservations }" var="clientReservation" >
+										<div class="client-reservations mx-auto d-flex justify-content-around mb-3">
+											<i class="far fa-calendar mr-3 d-block"></i>
+											<span class="mr-3 d-block"><c:out value="${clientReservation.dateReservation}" /></span>
+											<span class="mr-3 d-block"><c:out value="${clientReservation.heureReservation}" /></span>
+										</div>
+									</c:forEach >
+									<div class="d-block text-center mt-5 mb-4">
+											<a href="index?action=effectuerReservation" class="btn-profil-reservation">
+											Prendre un RDV
+										</a>
+									</div>
+									</div>
+								</c:otherwise>
+							</c:choose>	
+						</div>
+						<div class="menu-option  d-none">
+							<div class="pl-5 pt-5 ">
+						    <form method="post" action="post-client" class="mb-4">
+							
+				       		<!-- Un champ hidden pour savoir le type de l'action -->
+				        	<input type="hidden" name="action" value="ajouterCommentaire">
+				        	
+				        	<span class="d-block float-left mb-3" style="color: #201919; font-weight: bold;">Votre Avis sur notre service</span>
+				        	<div class="form-group">
+				        	<div class="input-group mb-4 pr-2">
+                                 
+                                <textarea name="contenu" rows="5" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <c:if test="${!empty formulaire.erreurs['contenu']}">
+                                        <p class="alert alert-danger mb-2 pr-2 right"><c:out value="${formulaire.erreurs['contenu']}"/><p>
+                                        </c:if>
+                            </div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 	</section>
-
 
 
 	<!-- Include the footer -->

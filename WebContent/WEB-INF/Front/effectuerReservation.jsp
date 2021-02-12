@@ -522,6 +522,21 @@
 				reservationsTimeButtons(todayReservations,idReservation,todayDate);
 			}
 		}
+
+		/* Fonction pour desactiver les heure passes */
+		function disablePassedHours(idReservation,hourRightNow){
+			console.log('teeest');
+			$(idReservation).children('.list-reservations').children('.btn-reservation').each(function(){
+				var hour = $(this).attr('reservation-heure');
+				var splitHour = hour.split(":");
+				var specificHour = parseInt(splitHour[0]);
+				if( specificHour < hourRightNow ){
+					$(this).removeClass('btn-reservation');
+					$(this).addClass('btn-reservation-disabled');
+				}
+			});
+		}
+		
 		var date = new Date();
 		$(document).ready(function(){
 		  var date = new Date();
@@ -559,6 +574,11 @@
 				});
 				$(this).remove();
 			});
+
+			var hourRightNow = parseInt(date.getHours());
+			console.log('this is : ' + hourRightNow);
+			var idReservation = '#day-1'; 
+			disablePassedHours(idReservation,hourRightNow);
 		});
 		
 	</script>

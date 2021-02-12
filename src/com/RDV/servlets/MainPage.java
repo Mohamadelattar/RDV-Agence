@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
 
 import com.RDV.Dao.ClientDao;
 import com.RDV.Dao.PublicationDao;
+import com.RDV.Dao.CommentaireDao;
 import com.RDV.Dao.ReservationDAO;
 import com.RDV.beans.Client;
 import com.RDV.beans.Publication;
+import com.RDV.beans.Commentaires;
 import com.RDV.beans.Reservation;
 import com.RDV.metier.ValidationReservation;
 import com.RDV.util.Mailer;
@@ -40,6 +42,8 @@ public class MainPage extends HttpServlet {
 	public static final String ATT_MAINPAGE = "index";
     public static final String ATT_FORM   = "form";
     public static final String ATT_SESSION_USER = "sessionClient";
+    private static final String ATT_COMMENTAIRES = "commentaires";
+    private static final String ATT_CLIENTS = "clients";
     private static final String CHAMP_EMAIL     = "email";
     private static final String CHAMP_PASSWORD   = "password";
     private static final String CLIENT_RESERVATIONS   = "clientReservations";
@@ -58,6 +62,8 @@ public class MainPage extends HttpServlet {
     
     private ClientDao          clientDao;
     private ReservationDAO 	   reservationDao; 
+    private CommentaireDao     commentaireDao;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -66,6 +72,9 @@ public class MainPage extends HttpServlet {
     	publicationDao = new PublicationDao(Publication.class);
     	clientDao = new ClientDao(Client.class);
     	reservationDao = new ReservationDAO(Reservation.class);
+    	commentaireDao = new CommentaireDao();
+
+    	
     }
     public MainPage() {
         super();
@@ -88,6 +97,10 @@ public class MainPage extends HttpServlet {
 				// pourquoi /
 				ArrayList < Publication > publications = (ArrayList<Publication>) publicationDao.publications(1);
 				session.setAttribute(ATT_PUBLICATIONS, publications);
+				ArrayList<Commentaires> commentaires = (ArrayList<Commentaires>) commentaireDao.getAllCommentaires();
+				request.setAttribute(ATT_COMMENTAIRES, commentaires);
+				ArrayList<Client> clients = clientDao.getAllClient();
+				request.setAttribute( ATT_CLIENTS , clients);
 			this.getServletContext().getRequestDispatcher( VUE_MAIN ).forward( request, response );
 			}
 			if("logout".equalsIgnoreCase(op)) {

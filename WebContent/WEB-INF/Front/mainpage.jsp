@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rdv-Agence</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=3">
+	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/style.css?version=7">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/publication.css?version=1">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/header.css">
 	<link rel="stylesheet" type="text/css" href="inc/inc_Front/css/testimonial.css">
+	<link rel="stylesheet" href="inc/inc_Front/css/aos.css" />
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
@@ -215,7 +217,7 @@
 
 	<!-- For main title -->
 	<div class="container-md mx-0 main-title mt-5 mb-5 pb-3 d-none d-lg-block">
-		<span class="d-block text-center title-para mb-4">nos actualités</span>
+		<span class="d-block text-center title-para mb-4">Nos actualités</span>
 		<h1 class="text-center">Lire nos derniers <span class="title-span">articles</span></h1>
 	</div>
  <section class="mt-5 mb-5" id="publications">
@@ -338,50 +340,32 @@
 					<div class="testimonial-caroussel">
 						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						  	<ol class="carousel-indicators">
-						   	 	<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						  	</ol>
 						  	<div class="carousel-inner">
-							    <div class="carousel-item active">
+						  	<c:forEach var="commentaire" items="${commentaires}">
+                            <c:forEach var="client" items="${clients}">
+                            <c:if test="${commentaire.idClient==client.id}">
+                                   <div class="carousel-item">
 							      	<div class="client-opinion">
 										<div class="d-none d-sm-block testimonial-client-image my-auto">
-											<img src="inc/inc_Front/images/benaicha.jpg" class="d-block img-fluid">
+											<img src="inc/inc_Front/images/<c:out value="${client.photoProfile}"/>" class="d-block img-fluid">
 										</div>
 										<div class="d-block d-sm-none client-image-low my-auto">
-											<img src="inc/inc_Front/images/benaicha.jpg" class="d-block img-fluid">
+											<img src="inc/inc_Front/images/<c:out value="${client.photoProfile}"/>" class="d-block img-fluid">
 										</div>
 										<div class="client-info">
-											<p class="testimonial-paragraph-quote text-center">
-												I simply love the SimplyBook.me online booking system! I run a small wellness clinic and the SimplyBook.me system saves me time and has streamlined my bookings.
+											<p class="testimonial-paragraph-quote text-center"><c:out value="${commentaire.contenu}" />
 											</p>
-											<h5 class="text-center testimonial-client-name">Mohamed Amine Benaicha</h5>
+											<h5 class="text-center testimonial-client-name"><c:out value="${client.nom}" /> <c:out value="${client.prenom}" /></h5>
 										</div>
 										<div class="client-agency">
 											<img src="" class="d-block img-fluid">
 										</div>
 									</div>
 							    </div>
-							    
-							    <div class="carousel-item">
-							      	<div class="client-opinion">
-										<div class="d-none d-sm-block testimonial-client-image my-auto">
-											<img src="inc/inc_Front/images/amiri.jpg" class="d-block img-fluid">
-										</div>
-										<div class="d-block d-sm-none client-image-low my-auto">
-											<img src="inc/inc_Front/images/amiri.jpg" class="d-block img-fluid">
-										</div>
-										<div class="client-info">
-											<p class="testimonial-paragraph-quote text-center">
-												I simply love the SimplyBook.me online booking system! I run a small wellness clinic and the SimplyBook.me system saves me time and has streamlined my bookings.
-											</p>
-											<h5 class="text-center testimonial-client-name">Mohamed Amiri</h5>
-										</div>
-										<div class="client-agency">
-											<img src="" class="d-block img-fluid">
-										</div>
-									</div>
-							    </div>
+							    </c:if>
+                            </c:forEach>
+                            </c:forEach>
 						 	</div>
 							  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -397,6 +381,173 @@
 			</div>
 		</div>
 	</section>
+	
+	<!-- About our Agence -->
+	<section class="mt-5 mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6 pl-0" id="paddingWrapper">
+					<div class="w-100 animation-wrapper">
+						<div class="img-wrapper-1" data-aos="fade-left" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-in-sine">
+							<img src="inc/inc_Front/images/image-animate-1.jpeg" class="d-block img-fluid">
+						</div>
+						<div class="img-wrapper-2 d-none d-sm-block" data-aos="fade-right" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-in-sine">
+							<img src="inc/inc_Front/images/image-animate.jpeg" class="d-block img-fluid" >
+						</div>
+						<!-- Visible on Mobile Size -->
+						<div class="img-wrapper-2-low d-block d-none" data-aos="fade-right" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-in-sine">
+							<img src="inc/inc_Front/images/image-animate.jpeg" class="d-block img-fluid" >
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 pl-0 pl-md-5">
+					<!-- For main title -->
+					<div class="main-title mb-2">
+						<span class="d-block title-para mb-3">About Our Agence</span>
+						<h1 class="mb-4">
+							Nous établissons le nouveau
+							<span class="title-span">Recherche et soins </span>
+							cliniques.
+						</h1>
+						<p class="title-paragraph mb-4">Excepteur sint occaecat cupidatat non proident sunt iculpa qui officia deserunt mollit anim est. laborum sed </p>
+					</div>
+					<ul class="about-list p-0">
+						<li class="about-list-item mb-4">
+							<ul class="list-inline d-flex justify-content-start">
+								<li class="list-inline-item list-item-icon d-block mr-5">
+									<i class="far fa-chart-bar"></i>
+								</li>
+								<li class="list-inline-item d-block">
+									<h3 class="mb-2">eporting & Analysis</h3>
+									<p>Naff are you taking the piss say blow off faff about wellies richard.</p>
+								</li>
+							</ul>
+						</li>
+						<li class="about-list-item">
+							<ul class="list-inline d-flex justify-content-start">
+								<li class="list-inline-item list-item-icon2 d-block mr-5">
+									<i class="far fa-chart-bar"></i>
+								</li>
+								<li class="list-inline-item d-block">
+									<h3>Technical Medical Audit</h3>
+									<p>Naff are you taking the piss say blow off faff about wellies richard.</p>
+								</li>
+							</ul>
+						</li>
+						<li class="about-list-item mt-4">
+							<a href="#" class="line-rdv">
+	                			Prendre un Rendez vous
+	                		</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Care Service -->
+	<section class="mt-5 mb-5" id="care-service">
+		<div class="container px-5 d-none d-lg-block">
+			<!-- For main title -->
+			<div class="main-title mt-5 mb-5" data-aos="flip-left">
+				<span class="d-block text-center title-para mb-4">les services de base</span>
+				<h1 class="text-center">
+					Explorez nos soins et 
+					<span class="title-span">notre prime Services</span>
+					médicaux
+				</h1>
+			</div>
+			<div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/pills.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Dentisry</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/pulmonology.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Pulmonology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/cardiology.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Cardiology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/brain.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Neurology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/vaccine.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Vaccination</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/child.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Pediatrics</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Low sizes -->
+		<div class="container-md px-5 d-block d-lg-none">
+			<!-- For main title -->
+			<div class="main-title mt-5 mb-5" data-aos="flip-left">
+				<span class="d-block text-center title-para mb-4">les services de base</span>
+				<h1 class="text-center">
+					Explorez nos soins et 
+					<span class="title-span">notre prime Services</span>
+					médicaux
+				</h1>
+			</div>
+			<div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/pills.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Dentisry</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/pulmonology.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Pulmonology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/cardiology.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Cardiology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/brain.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Neurology</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/vaccine.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Vaccination</span>
+					</div>
+				</div>
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+					<div class="care-service">
+						<img src="inc/inc_Front/images/child.svg" class="d-block img-fluid mb-2">
+						<span class="d-block text-center pb-3">Pediatrics</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	
 	<!-- On prend soin de vous -->
 	<section class="mt-5 mb-5" id="prend-soin-section">
@@ -421,7 +572,7 @@
                        	</c:if>
 	                </ul>
 				</div>
-				<div class="col-lg-6 box-wrap d-none d-lg-block">
+				<div class="col-lg-6 box-wrap d-none d-lg-block"  data-aos="fade-left" data-aos-offset="300" data-aos-duration="800" data-aos-easing="ease-in-sine">
 					<div class="box py-5 px-5 text-center">
 						<div class="row">
 							<div class="col-6 my-4">
@@ -462,7 +613,6 @@
 			</div>
 		</div>
 	</section>
- 
 
 	<section class="social-media">
 		
@@ -734,7 +884,28 @@
 	<!-- Include the footer -->
 	<c:import url="/inc/inc_Front/footer.jsp" />
 	
+	<!-- For Animation -->
+    <script type="text/javascript" src="inc/inc_Front/scripts/aos.js"></script>
+    <script type="text/javascript">
+        AOS.init();
+    </script>
+	
 	<!-- Afficher les erruers du formulaire d'inscription -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.publication-entity').hover(
+		       function(){ 
+		       	$(this).children('.publication-picture').children('div').addClass('bg-color-hover');
+		       	$(this).children('.publication-picture').children('img').addClass('publication-picture-hover');
+		       	 },
+		       function(){ 
+		       	$(this).children('.publication-picture').children('div').removeClass('bg-color-hover');
+		        $(this).children('.publication-picture').children('img').removeClass('publication-picture-hover');
+		   		}
+			)
+		})
+	</script>
+			
 	
 	<script type="text/javascript">
 		<c:if test="${not empty erreur}">

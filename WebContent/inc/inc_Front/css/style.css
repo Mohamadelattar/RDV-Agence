@@ -434,6 +434,12 @@
 	border-radius: 100%;
 	position: relative;
 }
+.profil-image img{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	
+}
 .profil-image-source,.profil-image-doctor{
 	border-radius: 100%;
 }
@@ -693,6 +699,7 @@
     line-height: 1.8;
     font-weight: 500;
     font-size: 1.1rem;
+     
 }
 
 .blog p a {
@@ -1200,11 +1207,6 @@ li{
     padding-bottom: 8px;
     margin-left: 16px;
 }
-.mb-2, .my-2 {
-    margin-top: 5px;
-    text-align: center;
-    line-height: 0.6;
-}
 
 /* Loading Bar animation */
 no-js #loader { display: none;  }
@@ -1278,5 +1280,110 @@ no-js #loader { display: none;  }
 	color: #ab1c6e;
 	font-family: "GiltroyBold",sans-serif;
 }
+.right {
+	right:24px;
+} 
 
- 
+
+/*Image Wrapper banner*/
+#paddingWrapper{
+	padding-bottom: 15rem;
+}
+.animation-wrapper{
+	position: relative
+}
+.img-wrapper-1{
+	width: 400px;
+	height: 470px;
+    box-shadow: 0px 15px 40px 0px rgba(13, 29, 13, 0.1);
+    position: relative;
+}
+.img-wrapper-1::before{
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	opacity: 0.8;
+	background-color: #004ca9;
+}
+.img-wrapper-2,.img-wrapper-2-low{
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	left: 20%;
+	top: 60%;
+}
+.img-wrapper-2-low{
+	left: 12%;
+}
+.img-wrapper-2 img,.img-wrapper-2-low img{
+	border-radius: 10px;
+	box-shadow: 0px 15px 40px 0px rgba(13, 29, 13, 0.1);
+}
+.about-list-item .line-rdv:hover{
+	background-color: #7d62cc !important;
+	transition: 0.3s;
+}
+
+/* About us Section */
+.about-list-item .list-inline .list-item-icon,.about-list-item .list-inline .list-item-icon2{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+    color: #886bdf;
+    font-size: 26px;
+    line-height: 1;
+    text-align: center;
+    background-color: rgba(136, 107, 223, 0.25);
+    position: relative;
+}
+.about-list-item .list-inline .list-item-icon2{
+	background-color: rgba(18, 157, 232, 0.25);
+	color: #129DE8;
+}
+.about-list-item .list-inline .list-item-icon i,.about-list-item .list-inline .list-item-icon2 i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.about-list-item .list-inline .list-inline-item h3{
+	font-family: 'GiltroyBold', sans-serif;
+    color: #3d415b;
+    font-size: 20px;
+    line-height: 1.5em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.about-list-item .list-inline .list-inline-item p{
+	font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #646464;
+}
+
+/* Care Service */
+#care-service{
+	background-color: #f2f5f7;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
+.care-service {
+	background: #fff;
+	transition: .5s ease;
+	text-align: center;
+	border-radius: 5px;
+}
+.care-service img{
+	padding: 20px 39px 0px 39px;
+}
+.care-service span{
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    transition: .5s ease;
+}
