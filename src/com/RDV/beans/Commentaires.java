@@ -15,6 +15,15 @@ public class Commentaires {
 	@Column(name="id")
 	protected int id;
 	
+	@Column(name="contenu")
+	protected String contenu;
+	
+	@Column( name = "idClient" )
+	private int	idClient;
+	
+	public Commentaires() {
+	}
+	
 	public int getIdClient() {
 		return idClient;
 	}
@@ -23,19 +32,6 @@ public class Commentaires {
 		this.idClient = idClient;
 	}
 
-	@Column(name="titre")
-	protected String titre;
-	
-	@Column(name="contenu")
-	protected String contenu;
-	
- 
-	@Column( name = "idClient" )
-	private int	idClient;
-	
-	public Commentaires() {
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -44,13 +40,6 @@ public class Commentaires {
 		this.id = id;
 	}
 
-	public String getTitre() {
-		return titre;
-	}
-
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
 
 	public String getContenu() {
 		return contenu;
@@ -60,12 +49,9 @@ public class Commentaires {
 		this.contenu = contenu;
 	}
 
- 
 
-	public Commentaires(String titre, String contenu) {
+	public Commentaires(String contenu) {
 		super();
-		this.titre = titre;
 		this.contenu = contenu;
-		 
 	}
 	}

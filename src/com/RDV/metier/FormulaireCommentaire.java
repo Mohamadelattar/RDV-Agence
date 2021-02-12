@@ -39,7 +39,7 @@ public class FormulaireCommentaire {
 	        } catch ( Exception e ) {
 	            setErreur( CHAMP_CONTENU, e.getMessage() );
 	        }
-	        commentaire.setTitre("commentaire");
+	        
 	        commentaire.setContenu( contenu );
 	        commentaire.setIdClient(client.getId());
 	        
@@ -67,7 +67,7 @@ public class FormulaireCommentaire {
 	    
 	    
 	    /**
-	     * Ajoute un message correspondant au champ spécific �  la map des erreurs.
+	     * Ajoute un message correspondant au champ spécific à la map des erreurs.
 	     */
 	    private void setErreur( String champ, String message ) {
 	        erreurs.put( champ, message );

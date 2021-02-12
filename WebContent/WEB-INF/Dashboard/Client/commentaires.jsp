@@ -48,10 +48,9 @@
                                            <thead>
                                            <tr class="row100 head">
                                            <th class="cell100 column1">ID</th>
-                                           <th class="cell100 column2">Titre</th>
+                                           <th class="cell100 column2">IdClient</th>
                                            <th class="cell100 column3">Contenu</th>
-                                           <th class="cell100 column4">Client</th>
-                                           <th class="cell100 column5">Actions</th>                                        
+                                           <th class="cell100 column4">Actions</th>                                        
                                            </thead>   
                                                             
                                        </table>
@@ -61,10 +60,8 @@
                                            <c:forEach var="commentaires" items="${listCommentaires}">
                                            <tr class="row100 body">
                                                 <td class="cell100 column1"><c:out value="${commentaires.id}" /></td>
-                                                <td class="cell100 column2"><c:out value="${commentaires.titre}" /></td>
-                                                <td class="cell100 column3"><c:out value="${commentaires.contenu}" /></td>
-                                                <td class="cell100 column4"><c:out value="${commentaires.cin}" /></td>
-                                                <td>
+                                                <td class="cell100 column2"><c:out value="${commentaires.idClient}" /></td>
+                                                <td class="cell100 column3"><c:out value="${commentaires.contenu}" /></td>                                                <td>
                                                 <div class="modal-footer justify-content-center">
                                                 <a href="#" data-toggle="modal" data-target="#confirm-delete" class="btn btn-primary btn-danger modal-trigger" data-href="?do=delete&id=<c:out value="${commentaires.id}"/>">
                                                 <i id="delete-btn" class="fas fa-trash-alt mr-3" style="display:inline;"></i>Supprimer</a>

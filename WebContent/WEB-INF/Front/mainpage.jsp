@@ -435,7 +435,7 @@
 							</ul>
 						</li>
 						<li class="about-list-item mt-4">
-							<a href="#" class="line-rdv">
+							<a href="?action=effectuerReservation" class="line-rdv">
 	                			Prendre un Rendez vous
 	                		</a>
 						</li>
@@ -800,7 +800,7 @@
 			<div class="row">
 				<div class="col-12 col-md-5 d-flex align-items-center">
 					<div class="d-none d-md-block">
-						<h3 class="section-title section-title-size text-center mb-4">Nouveau <span>sur SimplyBook.me ?</span></h3>
+						<h3 class="section-title section-title-size text-center mb-4">Nouveau <span>sur ClinMedix ?</span></h3>
 						<p class="guide-description">
 							Vous voulez en savoir plus sur la façon dont SimplyBook.me peut vous aider à gérer vos réservations en ligne ? Regardez la vidéo pour découvrir ce que vaut notre logiciel de réservation
 						</p>
