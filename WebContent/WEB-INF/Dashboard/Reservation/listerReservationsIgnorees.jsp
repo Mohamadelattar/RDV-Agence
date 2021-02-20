@@ -68,7 +68,7 @@
 									<td class="column2 text-center res-confirm-non-td"><c:out value="${reservation.heureReservation }" /></td>
 									
 									<td class="column2 text-center res-confirm-non-td">
-										<a class="mb-2 mr-2 border-0 btn-transition btn btn-outline-success btn-confirm" data-toggle="modal" data-target="#confirm-delete" data-href="dash-reservations?do=confirmer&id=<c:out value="${reservation.idReservation }"/>">
+										<a class="mb-2 mr-2 border-0 btn-transition btn btn-outline-success btn-confirm" data-toggle="modal" data-target="#confirm" data-href="dash-reservations?do=confirmer&id=<c:out value="${reservation.idReservation }"/>">
                                            	  Confirmer
                                        	</a>
 									</td>
